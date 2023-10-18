@@ -1,0 +1,32 @@
+.round-card {
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
+}
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0 10%;
+ }
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  padding: 20px 0 14px 0;
+  height: auto;
+}
+.button-container button {
+  margin-right: 10px;
+}
+
+.link-container a {
+  margin-right: 27px;
+}
+.link-container a:hover{
+  color: #AB3964;
+}
+.nav-container{
+  display: flex;
+  gap: 60px;
+}
