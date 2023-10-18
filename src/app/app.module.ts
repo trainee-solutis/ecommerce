@@ -9,6 +9,9 @@ import {MatCardModule} from "@angular/material/card";
 import { HeaderComponent } from "@components/header/header.component";
 import { SearchBarComponent } from "@components/searchBar/search-bar.component";
 import { FooterComponent } from "@components/footer/footer.component";
+import { MatDialogModule } from "@angular/material/dialog";
+import { ModalButtonComponent } from "@components/modal-button/modal-button.component";
+import { ModalComponent } from "@components/modal/modal.component";
 import { HttpClientModule } from "@angular/common/http";
 
 import { ProductSliderComponent } from "./components/product-slider/product-slider.component";
@@ -27,7 +30,9 @@ import { ProductComponent } from "./pages/product/product.component";
     HomeComponent,
     FooterComponent,
     ProductSliderComponent,
-    ProductComponent
+    ProductComponent,
+    ModalComponent,
+    ModalButtonComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,11 @@ import { ProductComponent } from "./pages/product/product.component";
     NgbModule,
     HttpClientModule,
     CarouselComponent,
-    MatToolbarModule, MatButtonModule, MatIconModule,MatCardModule
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
