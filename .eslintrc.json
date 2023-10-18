@@ -15,7 +15,7 @@
     "ignorePatterns": ["/**/*.html", "**/*.css", "**/*.json"],
     "rules": {
         "indent": ["error", 2],
-        "linebreak-style": ["auto"],
+        "linebreak-style": ["error", "unix"],
         "quotes": ["error", "double"],
         "semi": ["error", "always"],
         "eol-last": ["error", "always"],
