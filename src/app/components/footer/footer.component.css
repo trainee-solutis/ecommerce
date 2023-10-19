@@ -1,40 +1,51 @@
 * {
   margin: 0;
+  padding: 0;
 }
 .about-text{
-  width: 706px;
-  height: 79px;
+  width: 50%;
+  height: 80%;
   font-weight: 400;
   font-size: 12px;
   line-height: 14.52px;
+  text-wrap: wrap;
+  text-align: justify;
 }
 
 .contact{
-  width: 115px;
+  width: auto;
   height: 66px;
   font-size: 12px;
   line-height: 14.52px;
   font-weight: 400;
+  text-wrap: wrap;
+
 }
 .container-main{
   margin-top: 10px;
-  width: 80%;
+  width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: center;
-  gap: 50px;
+  justify-content: space-between;
 }
 #credits{
   font-size: 12px;
 }
-.footer{
+footer{
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 100%;
-  height: 180px;
-  background-color: #525252;
+  width: 80%;
+  height: 150px;
   color: #ffffff;
-  gap: 70px;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  height: auto;
+  width: 100%;
 }
 .phone{
   font-size: 16px;
