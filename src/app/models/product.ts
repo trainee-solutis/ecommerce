@@ -7,7 +7,7 @@ export interface Product{
     rate: number,
     image: string,
     price: number,
-    discount: number,
+    discount?: number,
     tecnicalDescription: TecnicalDescription
 }
 

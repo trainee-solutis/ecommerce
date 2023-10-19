@@ -40,20 +40,15 @@ export class ProductSliderCardComponent implements OnInit {
     this.priceWithDiscounts = price - (price * discount / 100);
   }
 
-  checkValidDiscount(){
-    if(this.product?.discount == 0 || undefined){
-      return false
-    }
-    return true
+  checkValidDiscount(): boolean {
+    return !!this.product?.discount;
   }
   
-  getRateArray(){
-    return new Array(this.product?.rate)
-  }
-  getUnrateArray(){
-    if(this.product?.rate == undefined){
-      return new Array(0);
-    }
-    return new Array(5 - this.product?.rate);
+  getRateStar(filed?: boolean): Array<number> {
+    let rate = this.product?.rate ?? 0;
+    if(rate>5){
+      rate=5
+    } 
+    return filed ? new Array(rate) : new Array(5 - rate);
   }
 }
