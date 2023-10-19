@@ -1,0 +1,99 @@
+{
+  "uuid": "4f76be89-4430-4bdc-bbf6-a1cb915896e7",
+  "lastMigration": 28,
+  "name": "EcomerceMockoon",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3000,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "6c4408b1-250d-4f31-b8cb-e41718a71474",
+      "type": "crud",
+      "documentation": "",
+      "method": "",
+      "endpoint": "products",
+      "responses": [
+        {
+          "uuid": "851cdd6f-2f7f-4d73-8963-2e452ef6a791",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "1ae3",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id"
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "6c4408b1-250d-4f31-b8cb-e41718a71474"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept,Authorization,Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [
+    {
+      "uuid": "9c64f113-1e01-4092-8812-a573503855e8",
+      "id": "1ae3",
+      "name": "Product",
+      "documentation": "",
+      "value": "[\n  {{#repeat 20}}\n    {\n      \"id\":{{add @index 1}},\n      \"name\":\"{{faker 'commerce.product'}}\",\n      \"description\":\"{{faker 'commerce.productDescription'}}\",\n      \"rate\": {{int 1 5}},\n      \"image\": \"https://source.unsplash.com/random\",\n      \"price\": {{faker 'commerce.price'}},\n      \"discount\":{{int 0 20}},\n      \"tecnicalDescription\":[\n        \"brand\":\"{{faker 'company.name'}}\",\n        \"model\":\"{{faker 'lorem.word'}}\",\n        \"color\":\"{{faker 'color.human'}}\",\n        \"material\":\"{{faker 'commerce.productMaterial'}}\",\n        \"dimensions\":\"{{int 1 200}}cm X {{int 1 200}}cm\",\n        \"weight\":\"{{int 1 5000}} gramas\",\n        \"warranty\": {{int 0 14}}\n      ]\n    }\n    {{#unless @last}},{{/unless}}\n  {{/repeat}}\n}"
+    }
+  ]
+}
