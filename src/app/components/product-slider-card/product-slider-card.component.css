@@ -1,0 +1,80 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+.p-slider__card{
+    height: 100%;
+    width: 100%;
+    max-width: 180px;
+    max-height: 280px;
+    display: flex;
+    flex-direction: column;
+    
+    
+    background: whitesmoke;
+    
+    padding: 10px;
+    border-radius: 10px 10px 0px 0px;
+}
+.p-slider__image-container{
+    height: 60%;
+}
+
+.p-slider__image{
+    width: 100%;
+    max-height: 100%;
+}
+
+.p-slider__header{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.p-slider__title{
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.p-slider__title:hover{
+    text-decoration: underline;
+}
+
+.p-slider__description{
+    overflow: hidden;
+    position: relative;
+    font-size: 0.8em;
+    color: gray;
+    max-height: 2.4em; /* aqui vc controla a altura da caixa de texto */
+    text-align: justify;
+}
+
+.p-slider__description:before {
+    content: '...';
+    position: absolute;
+    right: 0px;
+    bottom: 0;
+    background-color: whitesmoke;
+    padding: 0 0px 0 0.25em;
+}
+
+.checked {
+    color: orange;
+}
+
+.p-slider__price{
+    font-size: 0.6em;
+    color: gray;
+}
+
+.p-slider__price--dashed{
+    text-decoration: line-through;
+}
+
+.p-slider__price--title{
+    font-size: 1.2rem;
+    color: black;
+}
