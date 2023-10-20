@@ -12,6 +12,7 @@ export class ProductSliderCardComponent implements OnInit {
   priceWithDiscounts = 0;
   
   ngOnInit(): void {
+    // teste enquanto n implementa nos sliders. Inicio dos teste
     this.product = {
       id:2,
       name:"Gloves",
@@ -30,6 +31,7 @@ export class ProductSliderCardComponent implements OnInit {
         warranty: 13
       }
     }
+    // Fim do teste
     this.getPriceWithDiscount();
   }
 
