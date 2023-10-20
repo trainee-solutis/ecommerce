@@ -1,5 +1,5 @@
 import { Component, Input, OnInit} from '@angular/core';
-import { Product } from 'src/app/models/product';
+import { Product } from 'app/models/product';
 
 @Component({
   selector: 'app-product-slider-card',
@@ -7,10 +7,10 @@ import { Product } from 'src/app/models/product';
   styleUrls: ['./product-slider-card.component.css']
 })
 export class ProductSliderCardComponent implements OnInit {
-  
-  @Input() product? : Product 
+
+  @Input() product? : Product
   priceWithDiscounts = 0;
-  
+
   ngOnInit(): void {
     // teste enquanto n implementa nos sliders. Inicio dos teste
     this.product = {
@@ -45,12 +45,12 @@ export class ProductSliderCardComponent implements OnInit {
   checkValidDiscount(): boolean {
     return !!this.product?.discount;
   }
-  
+
   getRateStar(filed?: boolean): Array<number> {
     let rate = this.product?.rate ?? 0;
     if(rate>5){
       rate=5
-    } 
+    }
     return filed ? new Array(rate) : new Array(5 - rate);
   }
 }
