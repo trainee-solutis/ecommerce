@@ -9,16 +9,18 @@ import { SearchBarComponent } from "@components/searchBar/search-bar.component";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { HeaderComponent } from "./components/header/header.component";
-import { SearchBarComponent } from './components/searchBar/search-bar.component';
 import { ProductSliderCardComponent } from './components/product-slider-card/product-slider-card.component';
+import { HomeComponent } from './pages/home/home.component';
+import { FooterComponent } from "@components/footer/footer.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchBarComponent,
     HeaderComponent,
-    ProductSliderCardComponent
+    ProductSliderCardComponent,
+    HomeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
