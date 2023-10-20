@@ -9,12 +9,16 @@ import { SearchBarComponent } from "@components/searchBar/search-bar.component";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import { HomeComponent } from './pages/home/home.component';
+import { FooterComponent } from "@components/footer/footer.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchBarComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
