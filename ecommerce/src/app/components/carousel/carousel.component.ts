@@ -1,7 +1,7 @@
-import { NgFor, NgIf } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgbCarousel, NgbCarouselConfig, NgbCarouselModule, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselConfig, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-carousel',
@@ -24,52 +24,4 @@ export class CarouselComponent implements OnInit{
 		config.pauseOnHover = false;
     config.showNavigationArrows = false;
 	}
-
-
-
-
-
-
-
-
-
-
-  // timerSubs!: Subscription;
-
-  // @Input() images: string[] = [];
-
-  // private _indexActiveImage: number = 0;
-  // get indexActiveImage(){
-  //   return this._indexActiveImage;
-  // }
-
-  // set indexActiveImage(value: number) {
-  //   this._indexActiveImage = value < this.images.length ? value : 0;
-  // }
-
-  // ngOnInit(): void {
-  //   this.startTimer();
-  // }
-
-  // ngOnDestroy(): void {
-  //   this.stopTimer();
-  // }
-
-  // startTimer(): void {
-  //   this.timerSubs = timer(5000).subscribe(() => {
-  //     this.activeImage(
-  //       this.indexActiveImage + 1
-  //     )
-  //   });
-  // }
-
-  // stopTimer(): void {
-  //   this.timerSubs?.unsubscribe();
-  // }
-
-  // activeImage(index: number): void {
-  //   this.indexActiveImage = index;
-  //   this.startTimer();
-  // }
-
 }
