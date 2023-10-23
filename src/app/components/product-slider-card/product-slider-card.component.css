@@ -40,7 +40,6 @@
     position: relative;
     font-size: 0.8em;
     color: gray;
-    /* max-height: 2.4em; */
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -51,14 +50,6 @@
     text-align: justify;
     width: 100%;
 }
-
-/* .p-slider__description:before {
-    content: '...';
-    position: absolute;
-    right: 0px;
-    bottom: 0;
-    padding: 0 0px 0 0.25em;
-} */
 
 .p-slider__rate{
     margin-top: 0.3em;
