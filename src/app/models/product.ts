@@ -1,22 +1,20 @@
-
-
 export interface Product{
-    id: number,
-    name: string,
-    description:string,
-    rate: number,
-    image: string,
-    price: number,
-    discount?: number,
-    tecnicalDescription: TecnicalDescription
+  id: number,
+  name: string,
+  description:string,
+  rate: number,
+  image: string,
+  price: number,
+  discount?: number,
+  technicalDescription: TechnicalDescription
 }
 
-export interface TecnicalDescription{
-    brand: string,
-    model: string,
-    color: string,
-    material: string,
-    dimensions: string,
-    weight: string,
-    warranty: number
+export interface TechnicalDescription {
+  brand: string,
+  model: string,
+  color: string,
+  material: string,
+  dimensions: string,
+  weight: string,
+  warranty: number
 }

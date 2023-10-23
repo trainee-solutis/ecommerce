@@ -1,9 +1,9 @@
-<div>
+<div class="container">
   <app-search-bar></app-search-bar>
-  <div class="container">
-    <div class="content">CONTEUDO
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni ut qui recusandae, reiciendis quia dolorem facere a excepturi dignissimos voluptatibus delectus! Quod, quidem pariatur placeat possimus dolorem maxime vel minus.
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod sit harum dignissimos similique, iusto id voluptate accusantium sunt placeat fuga labore quam quisquam? Ducimus minima ullam ad quam quasi natus?
-    </div>
+  <app-carousel></app-carousel>
+  <div class="slider__container">
+    <app-product-slider title = "Ofertas Para você" [products]="products"></app-product-slider>
+  <app-product-slider title = "Melhores da semana" [products]="products"></app-product-slider>
+  <app-product-slider title = "Oferta Sazonal" [products]="products"></app-product-slider>
   </div>
 </div>
