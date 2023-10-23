@@ -11,11 +11,12 @@ import { SearchBarComponent } from "@components/searchBar/search-bar.component";
 import { FooterComponent } from "@components/footer/footer.component";
 import { HttpClientModule } from "@angular/common/http";
 
+import { ProductSliderComponent } from "./components/product-slider/product-slider.component";
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { ProductSliderCardComponent } from "./components/product-slider-card/product-slider-card.component";
 import { HomeComponent } from "./pages/home/home.component";
-import { ProductComponent } from './pages/product/product.component';
+import { ProductComponent } from "./pages/product/product.component";
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ProductComponent } from './pages/product/product.component';
     ProductSliderCardComponent,
     HomeComponent,
     FooterComponent,
+    ProductSliderComponent,
     ProductComponent
   ],
   imports: [
