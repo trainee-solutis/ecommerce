@@ -15,6 +15,7 @@ import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { ProductSliderCardComponent } from "./components/product-slider-card/product-slider-card.component";
 import { HomeComponent } from "./pages/home/home.component";
+import { ProductComponent } from './pages/product/product.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HomeComponent } from "./pages/home/home.component";
     HeaderComponent,
     ProductSliderCardComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
