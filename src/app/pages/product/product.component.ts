@@ -4,11 +4,11 @@ import { Product } from 'app/models/product';
 import { ProductsService } from 'app/services/products.service';
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  selector: "app-product",
+  templateUrl: "./product.component.html",
+  styleUrls: ["./product.component.css"]
 })
-export class ProductComponent  implements OnInit {
+export class ProductComponent implements OnInit {
 
   private id: number;
   product!: Product;
@@ -22,5 +22,7 @@ export class ProductComponent  implements OnInit {
       this.product = product;
     });
   }
+
+
 
 }
