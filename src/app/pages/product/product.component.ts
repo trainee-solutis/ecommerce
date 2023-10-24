@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Product } from 'app/models/product';
-import { ProductsService } from 'app/services/products.service';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { Product } from "app/models/product";
+import { ProductsService } from "app/services/products.service";
+import { BreadcrumbService } from "xng-breadcrumb";
 
 @Component({
   selector: "app-product",
@@ -13,16 +14,17 @@ export class ProductComponent implements OnInit {
   private id: number;
   product!: Product;
 
-  constructor(private route: ActivatedRoute, private productService: ProductsService) {
+  constructor(private route: ActivatedRoute, private productService: ProductsService, private breadcrumbService: BreadcrumbService) {
     this.id = this.route.snapshot.params["id"];
   }
 
   ngOnInit() {
+    console.log(this.id);
+
+    this.breadcrumbService.set("/", "Home");
     this.productService.getProduct(this.id).subscribe((product) => {
       this.product = product;
+      this.breadcrumbService.set(`product/${this.id}`, this.product.name);
     });
   }
-
-
-
 }

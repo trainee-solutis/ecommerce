@@ -1,11 +1,11 @@
-import { Input } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
-import { Product } from 'app/models/product';
+import { Input } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { Product } from "app/models/product";
 
 @Component({
-  selector: 'app-datasheet',
-  templateUrl: './datasheet.component.html',
-  styleUrls: ['./datasheet.component.css']
+  selector: "app-datasheet",
+  templateUrl: "./datasheet.component.html",
+  styleUrls: ["./datasheet.component.css", "../../pages/product/product.component.css"]
 })
 export class DatasheetComponent implements OnInit {
 

@@ -10,14 +10,15 @@ import { HeaderComponent } from "@components/header/header.component";
 import { SearchBarComponent } from "@components/searchBar/search-bar.component";
 import { FooterComponent } from "@components/footer/footer.component";
 import { HttpClientModule } from "@angular/common/http";
+import { BreadcrumbModule, BreadcrumbService } from "xng-breadcrumb";
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { ProductSliderCardComponent } from "./components/product-slider-card/product-slider-card.component";
 import { HomeComponent } from "./pages/home/home.component";
-import { ProductComponent } from './pages/product/product.component';
-import { DatasheetComponent } from './components/datasheet/datasheet.component';
-import { DescriptionComponent } from './components/description/description.component';
+import { ProductComponent } from "./pages/product/product.component";
+import { DatasheetComponent } from "./components/datasheet/datasheet.component";
+import { DescriptionComponent } from "./components/description/description.component";
 
 @NgModule({
   declarations: [
@@ -37,9 +38,12 @@ import { DescriptionComponent } from './components/description/description.compo
     NgbModule,
     HttpClientModule,
     CarouselComponent,
-    MatToolbarModule, MatButtonModule, MatIconModule,MatCardModule
+    MatToolbarModule, MatButtonModule, MatIconModule,MatCardModule,
+    BreadcrumbModule
   ],
-  providers: [],
+  providers: [
+    BreadcrumbService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
