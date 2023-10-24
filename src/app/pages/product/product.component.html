@@ -2,8 +2,25 @@
 <div class="container">
   <xng-breadcrumb separator=">" class="breadcrumb"></xng-breadcrumb>
   <h1>{{product.name}}</h1>
-</div>
-<app-stars></app-stars>
+  <ng-container *ngFor="let item of product.prices">
+    <ng-container [ngSwitch]="item.type">
+      <ng-container *ngSwitchCase="'default'">
+        <p>{{item.value}}</p> <!-- valor original sem desconto -->
+      </ng-container>
+
+  <ng-container *ngSwitchCase="'pix'">
+          <p>{{item.value}} no pix</p> <!-- valor com desconto no pix -->
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+          <ng-container *ngIf="item.interest; else noInterest">
+            <p>ou {{item.value}} em {{item.installment}}x com juros no {{item.type}}</p> <!-- valor no cartão com juros -->
+          </ng-container>
+          <ng-template #noInterest>
+            <p>ou {{item.value}} em {{item.installment}}x sem juros no {{item.type}}</p> <!-- valor no cartão sem juros -->
+          </ng-template>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+
 <app-description [product]="product"></app-description>
 <app-datasheet [product]="product"></app-datasheet>
-

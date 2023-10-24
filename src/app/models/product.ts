@@ -23,4 +23,5 @@ export interface Price {
   value: number,
   installment?: number,
   interest?: boolean,
+  discount?: number
 }
