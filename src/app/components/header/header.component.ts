@@ -1,4 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { MatDialog } from "@angular/material/dialog";
+import { ModalComponent } from "@components/modal/modal.component";
 
 @Component({
   selector: "app-header",
@@ -7,4 +9,11 @@ import { Component } from "@angular/core";
 })
 export class HeaderComponent {
 
+  constructor(public dialog: MatDialog) {}
+
+  openDialog(valorRecebido: number) {
+    const dialogRef = this.dialog.open(ModalComponent, {
+      data: { valorRecebido }
+    });
+  }
 }
