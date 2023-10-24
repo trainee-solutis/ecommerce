@@ -19,7 +19,6 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.id);
 
     this.breadcrumbService.set("/", "Home");
     this.productService.getProduct(this.id).subscribe((product) => {
