@@ -9,21 +9,15 @@ import { Product } from "app/models/product";
 export class ProductSliderCardComponent implements OnInit {
 
   @Input() product? : Product;
-  priceWithDiscounts = 0;
+  pricePix!: number;
+  priceDefault!: number;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
-    this.getPriceWithDiscount();
-  }
-
-
-  private getPriceWithDiscount() {
-    const price = this.product?.price ?? 0;
-    const discount = this.product?.discount ?? 0;
-    this.priceWithDiscounts = price - (price * discount / 100);
-  }
-
-  checkValidDiscount(): boolean {
-    return !!this.product?.discount;
+    this.priceDefault = this.product?.prices[1].value ?? 0;
+    this.pricePix = this.product?.prices[0].value ?? 0;
   }
 
   getRateStar(filed?: boolean): Array<number> {
@@ -32,5 +26,17 @@ export class ProductSliderCardComponent implements OnInit {
       rate=5;
     }
     return filed ? new Array(rate) : new Array(5 - rate);
+  }
+
+  getInstalment(): string {
+    let message = "";
+    this.product?.prices.forEach((price) => {
+      if (price.type === "cartão de crédito") {
+        console.log("entrei");
+
+        message = `ou ${price.installment}x de R$${price.value.toFixed(2)}`;
+      }
+    });
+    return message || "";
   }
 }

@@ -3,7 +3,7 @@
         <img src="{{product?.image}}" alt="{{product?.name}}" class="p-slider__image">
     </div>
     <div class="p-slider__header">
-        <a href="" class="p-slider__title">
+        <a [routerLink]="'product/' + product?.id" class="p-slider__title">
             {{product?.name}}
         </a>
         <p class="p-slider__description">
@@ -14,9 +14,9 @@
             <span class="fa fa-star" *ngFor="let index of getRateStar(); let i = index"></span>
         </div>
         <p class="p-slider__price">
-            <span class="p-slider__price--dashed" *ngIf="checkValidDiscount()">R${{product?.price}}</span><br>
-            <span class="p-slider__price--title">R${{priceWithDiscounts}}</span>
-            <span>no PIX<br> ou em 6x sem juros no cartão</span>
-        </p>    
+            <span class="p-slider__price--dashed">R${{priceDefault}}</span><br>
+            <span class="p-slider__price--title">R${{pricePix}}</span>
+            <span>no PIX<br> {{getInstalment()}}</span>
+        </p>
     </div>
 </div>
