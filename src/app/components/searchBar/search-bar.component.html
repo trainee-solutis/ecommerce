@@ -1,5 +1,14 @@
 <div class="app-container">
-  <p class="mensagem">{{ texto }}</p>
-  <input type="text">
-  <button>Buscar</button>
+	<label for="search-bar" class="col-xs-3 col-sm-auto col-form-label">{{ texto }}</label>
+		<input
+			id="search-bar"
+			type="text"
+			class="form-control"
+			[ngbTypeahead]="search"
+			[inputFormatter]="formatter"
+			[resultFormatter]="formatter"
+			[editable]="false"
+		/>
+    <button>Buscar</button>
 </div>
+<hr />
