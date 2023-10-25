@@ -15,11 +15,13 @@ import { HttpClientModule } from "@angular/common/http";
 import { ProductSliderComponent } from "@components/product-slider/product-slider.component";
 import { ProductSliderCardComponent } from "@components/product-slider-card/product-slider-card.component";
 import { BreadcrumbModule, BreadcrumbService } from "xng-breadcrumb";
+import { DatasheetComponent } from "@components/datasheet/datasheet.component";
+import { DescriptionComponent } from "@components/description/description.component";
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { HomeComponent } from "./pages/home/home.component";
-import { ProductComponent } from './pages/product/product.component';
+import { ProductComponent } from "./pages/product/product.component";
 
 @NgModule({
   declarations: [
@@ -29,7 +31,11 @@ import { ProductComponent } from './pages/product/product.component';
     ProductSliderCardComponent,
     HomeComponent,
     FooterComponent,
-    ProductComponent
+    ProductComponent,
+    ModalComponent,
+    ProductSliderComponent,
+    DatasheetComponent,
+    DescriptionComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +43,9 @@ import { ProductComponent } from './pages/product/product.component';
     NgbModule,
     HttpClientModule,
     CarouselComponent,
-    MatToolbarModule, MatButtonModule, MatIconModule,MatCardModule
+    MatToolbarModule, MatButtonModule, MatIconModule,MatCardModule,
+    MatDialogModule,
+    BreadcrumbModule
   ],
   providers: [
     BreadcrumbService
