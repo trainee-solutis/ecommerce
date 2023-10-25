@@ -1,14 +1,26 @@
-<div class="app-container">
-	<label for="search-bar" class="col-xs-3 col-sm-auto col-form-label">{{ texto }}</label>
-		<input
-			id="search-bar"
-			type="text"
-			class="form-control"
-			[ngbTypeahead]="search"
-			[inputFormatter]="formatter"
-			[resultFormatter]="formatter"
-			[editable]="false"
-		/>
-    <button>Buscar</button>
-</div>
+<form (ngSubmit)="goToProductPage(searchTerm)">
+  <div class="app-container">
+    <label for="search-bar" class="col-xs-3 col-sm-auto col-form-label">{{ texto }}</label>
+    <input
+      id="search-bar"
+      type="text"
+      class="form-control"
+      [(ngModel)]="searchTerm"
+      [ngModelOptions]="{ standalone: true }"
+      [ngbTypeahead]="search"
+      [inputFormatter]="formatter"
+      [resultTemplate]="rt"
+      [editable]="false"
+      (keydown.enter)="goToProductPage(searchTerm)"
+    />
+    <button type="submit">Buscar</button>
+  </div>
+</form>
 <hr />
+
+<ng-template #rt let-r="result" let-t="term">
+  <div [routerLink]="['/product', r.id]">
+    <img [src]="r.image" style="width: 2rem" />
+    <ngb-highlight [result]="r.name" [term]="t"></ngb-highlight>
+  </div>
+</ng-template>

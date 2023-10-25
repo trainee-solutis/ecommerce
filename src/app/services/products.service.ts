@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Product } from "app/models/product";
 import { environment } from "environments/environment";
-import { Observable } from "rxjs";
+import { Observable, map } from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -34,4 +34,15 @@ export class ProductsService {
   deleteProduct(id: number): Observable<Product> {
     return this.http.delete<Product>(`${this.api_url}/products/${id}`);
   }
+
+  getProductByName(name: string): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.api_url}/products`).pipe(
+      map((products: Product[]) =>
+        products.filter((product: Product) =>
+          product.name.toLowerCase().includes(name.toLowerCase())
+        )
+      )
+    );
+  }
 }
+

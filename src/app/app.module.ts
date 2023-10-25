@@ -17,6 +17,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { ProductSliderCardComponent } from "./components/product-slider-card/product-slider-card.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { ProductComponent } from "./pages/product/product.component";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ProductComponent } from "./pages/product/product.component";
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
