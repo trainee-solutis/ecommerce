@@ -29,7 +29,7 @@ export class SearchBarComponent implements OnInit {
     this.searchTerm = '';
   }
 
-  formatter = (state: Product) => `${state.name}`;
+  formatter = (produto?: Product) => produto?.name || '';
 
   search = (text$: Observable<string>): Observable<readonly Product[]> =>
     text$.pipe(
