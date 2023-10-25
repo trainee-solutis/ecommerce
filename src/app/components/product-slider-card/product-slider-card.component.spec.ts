@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ProductSliderCardComponent } from './product-slider-card.component';
+import { ProductSliderCardComponent } from "./product-slider-card.component";
 
-describe('ProductSliderCardComponent', () => {
+describe("ProductSliderCardComponent", () => {
   let component: ProductSliderCardComponent;
   let fixture: ComponentFixture<ProductSliderCardComponent>;
 
@@ -15,7 +15,7 @@ describe('ProductSliderCardComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

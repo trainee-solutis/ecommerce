@@ -9,7 +9,7 @@ import { Product } from "app/models/product";
 export class ProductSliderCardComponent implements OnInit {
 
   @Input() product? : Product;
-  priceWithDiscounts = 0;
+  priceWithDiscounts = "0";
 
   ngOnInit(): void {
     this.getPriceWithDiscount();
@@ -19,7 +19,7 @@ export class ProductSliderCardComponent implements OnInit {
   private getPriceWithDiscount() {
     const price = this.product?.price ?? 0;
     const discount = this.product?.discount ?? 0;
-    this.priceWithDiscounts = price - (price * discount / 100);
+    this.priceWithDiscounts = (price - (price * discount / 100)).toLocaleString("pt-BR", {minimumFractionDigits: 2});
   }
 
   checkValidDiscount(): boolean {

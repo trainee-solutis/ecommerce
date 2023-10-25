@@ -1,0 +1,34 @@
+<div  [ngSwitch]="data.valorRecebido">
+  <div *ngSwitchCase="1">
+    <h1 mat-dialog-title>Sobre Nós</h1>
+    <mat-dialog-content class="mat-typography">
+        <h2>Nossa Missão:</h2>
+        <p>Nosso compromisso é claro: tornar a vida de nossos clientes mais simples, oferecendo produtos de alta qualidade a preços acessíveis. Acreditamos que todos merecem a chance de desfrutar de produtos excepcionais sem esvaziar os bolsos.</p>
+        <h2>Diversidade de Itens:</h2>
+        <p>Em nosso catálogo, você encontrará de tudo, desde eletrônicos e moda até itens para o lar e beleza. Seja o que for que você esteja procurando, temos algo especial para você. Nossa equipe de compras está constantemente em busca das últimas tendências e produtos inovadores para garantir que sua seleção seja diversificada e atualizada.</p>
+        <h2>Economia Inteligente:</h2>
+        <p>Acreditamos que é possível combinar qualidade com preços competitivos. Trabalhamos em estreita colaboração com nossos parceiros e fornecedores para oferecer promoções e descontos excepcionais, permitindo que você economize sem comprometer a qualidade. Queremos que todos tenham a chance de realizar seus desejos sem esvaziar a carteira.</p>
+        <h2>Atendimento de Excelência:</h2>
+        <p>Nossos clientes são o coração de nosso negócio. O atendimento ao cliente é fundamental para nós. Nossa equipe está pronta para responder a todas as suas dúvidas, resolver qualquer problema e garantir que sua jornada de compras seja sempre suave e agradável.</p>
+        <h2>Compromisso com a Comunidade:</h2>
+        <p>Acreditamos que retribuir à comunidade é essencial. Comprometemo-nos a apoiar causas sociais e ambientais, adotando práticas comerciais éticas e sustentáveis. Queremos que você saiba que, ao comprar conosco, faz parte de algo maior e está contribuindo para um mundo melhor.</p>
+        <h2>O Futuro à Vista:</h2>
+        <p>Estamos constantemente evoluindo para atender melhor às suas necessidades. Enquanto olhamos para o futuro, estamos explorando novas tecnologias, aprimorando nossos processos e expandindo nosso catálogo. Nossa visão é crescer continuamente e nos tornar o e-commerce mais confiável e acessível do mercado.</p>
+        <p>Agradecemos por escolher nossa loja como seu destino de compras online. Esperamos que sua experiência de compras seja incrível e que se junte a nós nesta jornada emocionante de proporcionar produtos de alta qualidade a preços acessíveis. Juntos, estamos transformando desejos em realidade, um cliente de cada vez.</p>
+</mat-dialog-content>
+      <mat-dialog-actions align="end">
+        <button  mat-button mat-dialog-close>Fechar</button>
+    </mat-dialog-actions>
+  </div>
+
+  <div  *ngSwitchCase="2">
+    <h1 mat-dialog-title>Modal FALE CONOSCO</h1>
+    <mat-dialog-content class="mat-typography">
+
+      {{description}}
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button  mat-button mat-dialog-close>Fechar</button>
+    </mat-dialog-actions>
+  </div>
+</div>
