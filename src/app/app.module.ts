@@ -16,6 +16,9 @@ import { ProductSliderComponent } from "@components/product-slider/product-slide
 import { ProductSliderCardComponent } from "@components/product-slider-card/product-slider-card.component";
 import { FormsModule } from "@angular/forms";
 import { StarsComponent } from "@components/stars/stars.component";
+import { BreadcrumbModule, BreadcrumbService } from "xng-breadcrumb";
+import { DatasheetComponent } from "@components/datasheet/datasheet.component";
+import { DescriptionComponent } from "@components/description/description.component";
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
@@ -30,9 +33,11 @@ import { ProductComponent } from "./pages/product/product.component";
     ProductSliderCardComponent,
     HomeComponent,
     FooterComponent,
-    ProductSliderComponent,
     ProductComponent,
     ModalComponent,
+    ProductSliderComponent,
+    DatasheetComponent,
+    DescriptionComponent
   ],
   imports: [
     BrowserModule,
@@ -48,8 +53,11 @@ import { ProductComponent } from "./pages/product/product.component";
     FormsModule,
     NgbRatingModule,
     StarsComponent
+    BreadcrumbModule
   ],
-  providers: [],
+  providers: [
+    BreadcrumbService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
