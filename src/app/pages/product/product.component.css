@@ -78,3 +78,8 @@ h3 {
 
   width: 40%;
 }
+
+.product__price--discount{
+  color: greenyellow;
+  font-size: 1rem;
+}
