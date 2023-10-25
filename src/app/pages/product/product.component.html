@@ -1,1 +1,9 @@
-<p>product works!</p>
+<app-search-bar></app-search-bar>
+<div class="container">
+  <xng-breadcrumb separator=">" class="breadcrumb"></xng-breadcrumb>
+  <h1>{{product.name}}</h1>
+</div>
+
+<app-description [product]="product"></app-description>
+<app-datasheet [product]="product"></app-datasheet>
+

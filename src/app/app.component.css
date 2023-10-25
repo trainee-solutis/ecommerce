@@ -12,3 +12,9 @@ app-footer{
 .content{
   width: 80%;
 }
+
+app-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

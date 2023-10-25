@@ -14,11 +14,12 @@ import { ModalComponent } from "@components/modal/modal.component";
 import { HttpClientModule } from "@angular/common/http";
 import { ProductSliderComponent } from "@components/product-slider/product-slider.component";
 import { ProductSliderCardComponent } from "@components/product-slider-card/product-slider-card.component";
+import { BreadcrumbModule, BreadcrumbService } from "xng-breadcrumb";
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { HomeComponent } from "./pages/home/home.component";
-import { ProductComponent } from "./pages/product/product.component";
+import { ProductComponent } from './pages/product/product.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +29,7 @@ import { ProductComponent } from "./pages/product/product.component";
     ProductSliderCardComponent,
     HomeComponent,
     FooterComponent,
-    ProductSliderComponent,
-    ProductComponent,
-    ModalComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
@@ -38,13 +37,11 @@ import { ProductComponent } from "./pages/product/product.component";
     NgbModule,
     HttpClientModule,
     CarouselComponent,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
-    MatDialogModule
+    MatToolbarModule, MatButtonModule, MatIconModule,MatCardModule
   ],
-  providers: [],
+  providers: [
+    BreadcrumbService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
