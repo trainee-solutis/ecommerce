@@ -45,3 +45,36 @@ h3 {
   color: greenyellow;
   font-size: 1rem;
 }
+
+
+
+.product__image-price-container{
+  display: flex;
+  align-items: center;
+}
+.product__image-price-container p{
+  margin: 0;
+}
+
+.product__price{
+  color: gray;
+}
+
+.price__value--emphasis{
+  color: black;
+  font-size: 1.5rem;
+}
+
+.price__value--dashed{
+  text-decoration: line-through;
+  font-size: 1.25rem;
+}
+
+.product__images{
+  width: 60%;
+}
+
+.product__prices{
+
+  width: 40%;
+}

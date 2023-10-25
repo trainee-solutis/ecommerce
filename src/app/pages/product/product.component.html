@@ -1,26 +1,32 @@
 <app-search-bar></app-search-bar>
 <div class="container">
   <xng-breadcrumb separator=">" class="breadcrumb"></xng-breadcrumb>
-  <h1>{{product.name}}</h1>
-  <ng-container *ngFor="let item of product.prices">
-    <ng-container [ngSwitch]="item.type">
-      <ng-container *ngSwitchCase="'default'">
-        <p>{{item.value}}</p> <!-- valor original sem desconto -->
-      </ng-container>
-
-  <ng-container *ngSwitchCase="'pix'">
-          <p>{{item.value}} no pix</p> <!-- valor com desconto no pix -->
-        </ng-container>
-        <ng-container *ngSwitchDefault>
-          <ng-container *ngIf="item.interest; else noInterest">
-            <p>ou {{item.value}} em {{item.installment}}x com juros no {{item.type}}</p> <!-- valor no cartão com juros -->
+  <h1 class="product__name">{{product.name}}</h1>
+  <div class="product__image-price-container">
+    <div class="product__images">
+      images
+    </div>
+    <div class="product__prices">
+      <ng-container  *ngFor="let item of product.prices" >
+        <ng-container [ngSwitch]="item.type">
+          <ng-container *ngSwitchCase="'default'">
+            <p class="product__price"><span class="price__value--dashed">R${{item.value}}</span></p> <!-- valor original sem desconto -->
           </ng-container>
-          <ng-template #noInterest>
-            <p>ou {{item.value}} em {{item.installment}}x sem juros no {{item.type}}</p> <!-- valor no cartão sem juros -->
-          </ng-template>
+          <ng-container *ngSwitchCase="'pix'">
+            <p class="product__price"><span class="price__value--emphasis">R${{item.value}}</span> no pix</p> <!-- valor com desconto no pix -->
+          </ng-container>
+          <ng-container *ngSwitchDefault>
+            <ng-container *ngIf="item.interest; else noInterest">
+              <p class="product__price">ou R${{item.value}} em {{item.installment}}x com juros no {{item.type}}</p> <!-- valor no cartão com juros -->
+            </ng-container>
+            <ng-template #noInterest>
+              <p class="product__price">ou R${{item.value}} em {{item.installment}}x sem juros no {{item.type}}</p> <!-- valor no cartão sem juros -->
+            </ng-template>
+          </ng-container>
         </ng-container>
       </ng-container>
-    </ng-container>
-
-<app-description [product]="product"></app-description>
-<app-datasheet [product]="product"></app-datasheet>
+    </div>
+  </div>
+  <app-description [product]="product"></app-description>
+  <app-datasheet [product]="product"></app-datasheet>
+</div>
