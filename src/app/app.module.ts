@@ -47,6 +47,7 @@ import { ButtonComponent } from "./components/button/button.component";
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
