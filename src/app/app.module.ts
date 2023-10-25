@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { NgbModule, NgbRatingModule } from "@ng-bootstrap/ng-bootstrap";
 import { CarouselComponent } from "@components/carousel/carousel.component";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
@@ -14,6 +14,8 @@ import { ModalComponent } from "@components/modal/modal.component";
 import { HttpClientModule } from "@angular/common/http";
 import { ProductSliderComponent } from "@components/product-slider/product-slider.component";
 import { ProductSliderCardComponent } from "@components/product-slider-card/product-slider-card.component";
+import { FormsModule } from "@angular/forms";
+import { StarsComponent } from "@components/stars/stars.component";
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
@@ -42,7 +44,10 @@ import { ProductComponent } from "./pages/product/product.component";
     MatButtonModule,
     MatIconModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule,
+    NgbRatingModule,
+    StarsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
