@@ -4,8 +4,7 @@ export interface Product{
   description:string,
   rate: number,
   image: string,
-  price: number,
-  discount?: number,
+  prices: Array<Price>,
   technicalDescription: TechnicalDescription
 }
 
@@ -17,4 +16,12 @@ export interface TechnicalDescription {
   dimensions: string,
   weight: string,
   warranty: number
+}
+
+export interface Price {
+  type: string,
+  value: number,
+  installment?: number,
+  interest?: boolean,
+  discount?: number
 }
