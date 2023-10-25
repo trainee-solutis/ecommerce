@@ -52,7 +52,7 @@ import { ProductComponent } from "./pages/product/product.component";
     MatDialogModule,
     FormsModule,
     NgbRatingModule,
-    StarsComponent
+    StarsComponent,
     BreadcrumbModule
   ],
   providers: [
