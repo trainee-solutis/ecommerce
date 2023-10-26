@@ -30,15 +30,8 @@ export class ProductSliderCardComponent implements OnInit {
   }
 
   getInstalment(): string {
-    let message = "";
-    this.product?.prices.forEach((price) => {
-      if (price.type === "cartão de crédito") {
-        console.log("entrei");
-
-        message = `ou ${price.installment}x de R$${price.value.toFixed(2)}`;
-      }
-    });
-    return message || "";
+    const price = this.product?.prices.find(p => p.type === "cartão de crédito");
+    return price ? `ou ${price.installment}x de R$${price.value.toFixed(2)}` : "";
   }
 
   redirectToProduct(): void {
