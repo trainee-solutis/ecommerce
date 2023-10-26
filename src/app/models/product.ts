@@ -5,7 +5,8 @@ export interface Product{
   rate: number,
   image: string,
   prices: Array<Price>,
-  technicalDescription: TechnicalDescription
+  technicalDescription: TechnicalDescription,
+  rating: Array<Rating>,
 }
 
 export interface TechnicalDescription {
@@ -24,4 +25,9 @@ export interface Price {
   installment?: number,
   interest?: boolean,
   discount?: number
+}
+
+export interface Rating {
+  stars: number,
+  message: string,
 }
