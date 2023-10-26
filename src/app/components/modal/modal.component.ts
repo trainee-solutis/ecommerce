@@ -16,7 +16,5 @@ export class ModalComponent{
   title : string = 'Sobre Nós';
   description : string = 'Descriçao'
 
-
-
 }
 

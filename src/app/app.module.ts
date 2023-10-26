@@ -16,7 +16,6 @@ import { ModalComponent } from "@components/modal/modal.component";
 import { HttpClientModule } from "@angular/common/http";
 import { ProductSliderComponent } from "@components/product-slider/product-slider.component";
 import { ProductSliderCardComponent } from "@components/product-slider-card/product-slider-card.component";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { StarsComponent } from "@components/stars/stars.component";
 import { BreadcrumbModule, BreadcrumbService } from "xng-breadcrumb";
 import { DatasheetComponent } from "@components/datasheet/datasheet.component";
@@ -26,7 +25,7 @@ import { CalculateShippingComponent } from "@components/calculate-shipping/calcu
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatInputModule} from "@angular/material/input";
-
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
@@ -79,7 +78,11 @@ import { CepValidatorDirective } from "./directives/cep-validator.directive";
 
   ],
   providers: [
-    BreadcrumbService
+    BreadcrumbService,
+    MatFormFieldModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,14 @@
+.form{
+  min-width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+.mat-form-field-infix textarea {
+  resize: none;
+}
+
+.botao-desabilitado {
+  margin: 5px;
+  margin-top: 70px;
+  width: 200px;
+}

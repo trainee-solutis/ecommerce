@@ -1,0 +1,57 @@
+<form (ngSubmit)="submitForm()" [formGroup]="formulario" class="form">
+    <mat-form-field>
+      <mat-label>Nome</mat-label>
+      <input matInput type="text" formControlName="name" required>
+      <mat-error *ngIf="formulario.get('name')?.errors && formulario.get('name')?.touched && formulario.get('name')?.dirty">
+        Por favor, insira um name válido.
+      </mat-error>
+      <mat-error *ngIf="formulario.get('name')?.errors?.['required'] && formulario.get('email')?.touched">
+        O nome é <strong>obrigatorio</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>E-mail</mat-label>
+      <input matInput type="email" formControlName="email" required>
+      <mat-error *ngIf="formulario.get('email')?.errors && formulario.get('email')?.touched && formulario.get('email')?.dirty">
+        Por favor, insira um email válido.
+      </mat-error>
+      <mat-error *ngIf="formulario.get('email')?.errors?.['required'] && formulario.get('email')?.touched">
+        O email é <strong>obrigatorio</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Telefone</mat-label>
+      <input matInput type="tel" formControlName="phone" required>
+      <mat-error *ngIf="formulario.get('tel')?.errors && formulario.get('tel')?.touched && formulario.get('tel')?.dirty">
+        Por favor, insira um telefone válido.
+      </mat-error>
+      <mat-error *ngIf="formulario.get('tel')?.errors?.['required'] && formulario.get('tel')?.touched">
+        O telefone é <strong>obrigatorio</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Assunto</mat-label>
+      <input matInput type="text" formControlName="subject" required>
+      <mat-error *ngIf="formulario.get('subject')?.errors && formulario.get('subject')?.touched && formulario.get('subject')?.dirty">
+        Por favor, insira um assunto válido.
+      </mat-error>
+      <mat-error *ngIf="formulario.get('subject')?.errors?.['required'] && formulario.get('subject')?.touched">
+        O assunto é <strong>obrigatorio</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Mensagem</mat-label>
+      <textarea matInput #myInput cdkTextareaAutosize formControlName="message" required maxlength="1000" minlength="30"></textarea>
+      <mat-hint>{{myInput.value.length}} / 1000</mat-hint>
+      <mat-error *ngIf="formulario.get('message')?.errors?.['minlength'] && formulario.get('message')?.touched && formulario.get('message')?.dirty">
+        A mensagem deve ter no minimo 30 caracters.
+      </mat-error>
+      <mat-error *ngIf="formulario.get('message')?.errors?.['maxlength'] && formulario.get('message')?.touched && formulario.get('message')?.dirty">
+        A mensagem pode ter no máximo 10000 caracters.
+      </mat-error>
+      <mat-error *ngIf="formulario.get('message')?.errors?.['required'] && formulario.get('message')?.touched">
+        A mensagem é <strong>obrigatoria</strong>
+      </mat-error>
+    </mat-form-field>
+  <button color='primary' mat-raised-button type="submit" [disabled]="!formulario.valid">Enviar</button>
+</form>
