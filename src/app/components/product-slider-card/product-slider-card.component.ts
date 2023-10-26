@@ -16,8 +16,8 @@ export class ProductSliderCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.priceDefault = this.product?.prices[1].value ?? 0;
-    this.pricePix = this.product?.prices[0].value ?? 0;
+    this.priceDefault = this.product?.prices[0].value ?? 0;
+    this.pricePix = this.product?.prices[1].value ?? 0;
   }
 
   getRateStar(filed?: boolean): Array<number> {
