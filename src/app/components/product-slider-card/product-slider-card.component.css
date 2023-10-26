@@ -4,9 +4,15 @@
     max-width:180px;
     display: flex;
     flex-direction: column;
-
     padding: 10px;
+    border-radius: 10px;
+    transition: transform 0.2s ease-in-out;
 }
+
+.p-slider__card:hover{
+    transform: scale(1.05);
+}
+
 .p-slider__image-container{
     height: 60%;
 }
