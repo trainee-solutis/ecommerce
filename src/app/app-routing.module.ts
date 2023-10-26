@@ -6,13 +6,10 @@ import { ProductComponent } from "./pages/product/product.component";
 
 const routes: Routes = [
   {
+    path: "",
     component: HomeComponent,
     pathMatch: "full",
     data: { breadcrumb: "Home" },
-  },
-  {
-    path: "product",
-    component: ProductComponent
   },
   {
     path: "product/:id",
