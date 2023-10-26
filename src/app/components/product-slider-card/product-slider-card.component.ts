@@ -1,4 +1,5 @@
 import { Component, Input, OnInit} from "@angular/core";
+import { Router } from "@angular/router";
 import { Product } from "app/models/product";
 
 @Component({
@@ -12,7 +13,7 @@ export class ProductSliderCardComponent implements OnInit {
   pricePix!: number;
   priceDefault!: number;
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
@@ -39,4 +40,9 @@ export class ProductSliderCardComponent implements OnInit {
     });
     return message || "";
   }
+
+  redirectToProduct(): void {
+    this.router.navigate(["/product", this.product?.id]);
+  }
+
 }
