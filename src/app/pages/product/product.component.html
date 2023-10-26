@@ -6,7 +6,8 @@
     <div class="product__images">
       images
     </div>
-    <div class="product__prices">
+    <div class="product__infos">
+      <app-stars></app-stars>
       <ng-template ngFor let-item [ngForOf]="product.prices">
         <ng-container [ngSwitch]="item.type">
           <p *ngSwitchCase="'default'" class="product__price" [ngClass]="{'price__value--emphasis': !item.discount, 'price__value--dashed': item.discount}">
