@@ -1,6 +1,6 @@
 <div class="p-slider__card">
     <div class="p-slider__image-container">
-        <img src="{{product?.image}}" alt="{{product?.name}}" class="p-slider__image">
+        <img [routerLink]="'product/' + product?.id" src="{{product?.image}}" alt="{{product?.name}}" class="p-slider__image">
     </div>
     <div class="p-slider__header">
         <a [routerLink]="'product/' + product?.id" class="p-slider__title">
