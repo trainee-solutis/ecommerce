@@ -3,6 +3,11 @@ mat-toolbar{
   justify-content: center;
   width: 100vw;
 }
+
+img{
+  cursor: pointer;
+}
+
 .round-card {
   border-radius: 50%;
   width: 90px;
