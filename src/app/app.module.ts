@@ -1,3 +1,4 @@
+import { NgxImageZoomModule } from "ngx-image-zoom";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgbModule, NgbRatingModule } from "@ng-bootstrap/ng-bootstrap";
@@ -19,12 +20,14 @@ import { StarsComponent } from "@components/stars/stars.component";
 import { BreadcrumbModule, BreadcrumbService } from "xng-breadcrumb";
 import { DatasheetComponent } from "@components/datasheet/datasheet.component";
 import { DescriptionComponent } from "@components/description/description.component";
+import { ImageSelectorComponent } from "@components/image-selector/image-selector.component";
+
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { HomeComponent } from "./pages/home/home.component";
 import { ProductComponent } from "./pages/product/product.component";
-import { ButtonComponent } from './components/button/button.component';
+import { ButtonComponent } from "./components/button/button.component";
 
 @NgModule({
   declarations: [
@@ -39,7 +42,8 @@ import { ButtonComponent } from './components/button/button.component';
     ProductSliderComponent,
     DatasheetComponent,
     DescriptionComponent,
-    ButtonComponent
+    ButtonComponent,
+    ImageSelectorComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +59,8 @@ import { ButtonComponent } from './components/button/button.component';
     FormsModule,
     NgbRatingModule,
     StarsComponent,
-    BreadcrumbModule
+    BreadcrumbModule,
+    NgxImageZoomModule,
   ],
   providers: [
     BreadcrumbService
