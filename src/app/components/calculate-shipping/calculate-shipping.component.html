@@ -1,45 +1,37 @@
 <form #f="ngForm" (ngSubmit)="processarDados()">
-  <div class="shipping">
-    <div class="header">
-      <div class="actions">
-        <mat-form-field appearance="fill">
-          <mat-label for="nome">CEP</mat-label>
-          <input matInput [(ngModel)]="formData.cepdestino" #cep="ngModel" maxlength="8" name="cepdestino"
-            pattern="[0-9]+" validadorCep>
-          <mat-hint *ngIf="cep?.errors?.['pattern']" class="cep-invalid">
-            CEP Deve conter apenas números
-          </mat-hint>
-          <mat-hint *ngIf="cep?.errors?.['validadorCep']" class="cep-invalid">
-            CEP Inválido
-          </mat-hint>
-        </mat-form-field>
-        <button mat-raised-button color="primary" [disabled]="cep.invalid  ||  cep.pending">Consultar</button>
+  <div class="form">
+    <div class="input-header">
+      <div class="input">
+        <input  [(ngModel)]="formData.cepdestino" #cep="ngModel" maxlength="8" name="cepdestino"
+          pattern="[0-9]+" validadorCep>
       </div>
+      <button [disabled]="cep.invalid  ||  cep.pending">Calcular Frete</button>
     </div>
-    <div class="info" *ngIf="freteData && cepData else loading">
+
+    <div *ngIf="cep?.errors?.['pattern']" class="cep-invalid">
+      CEP Deve conter apenas números
+    </div>
+    <div *ngIf="cep?.errors?.['validadorCep']" class="cep-invalid">
+      CEP Inválido
+    </div>
+    <div class="input-content" *ngIf="freteData && cepData else loading">
       <div class="adress">
-        <p class="material-icons">
-          room
-        </p>
-        <p> {{cepData.bairro}}, {{cepData.localidade}} - {{cepData.uf}}</p>
+        <p class="material-icons">room</p>
+        <p>{{cepData.bairro}}, {{cepData.localidade}} - {{cepData.uf}}</p>
       </div>
-      <div class="prices">
-        <div class="normal-price">
-          <p>Entrega Padrão </p>
-          <div class="value">
+      <div class="info-delivery">
+        <div class="delivery">
+          <p>Entrega Padrão</p>
+          <div class="price">
             <p>R$ {{freteData.valorpac}}</p>
-            <div class="description">
-              <p>Até {{freteData.prazopac}} dias úteis</p>
-            </div>
+            <p class="time">Até {{freteData.prazopac}} dias úteis</p>
           </div>
         </div>
-        <div class="sedex-price">
-          <p>Entrega Sedex</p>
-          <div class="value">
-            <p>R${{freteData.valorsedex}}</p>
-            <div class="description">
-              <p>Até {{freteData.prazosedex}} dias úteis</p>
-            </div>
+        <div class="sedex-delivery">
+          <p>Entrega Sedex&nbsp;&nbsp;</p>
+          <div class="price">
+            <p>{{freteData.valorsedex}}</p>
+            <p class="time">Até {{freteData.prazosedex}} dias úteis</p>
           </div>
         </div>
       </div>
@@ -47,7 +39,11 @@
   </div>
   <ng-template #loading>
     <div class="loading-spinner" *ngIf="isLoading">
-      <mat-spinner></mat-spinner>
+      <p>Carregando</p>
+      <mat-spinner [diameter]="50"></mat-spinner>
     </div>
   </ng-template>
 </form>
+<div class="forget-cep">
+  <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank">Não sei meu cep</a>
+</div>

@@ -1,52 +1,106 @@
-form {
-  border: solid;
-  max-width: max-content;
-  padding: 10px;
+.form{
+  width: fit-content;
+  padding: 0px 20px;
+  color: gray;
 }
-p{
+.form,
+input {
+  border: none;
+  background-color: rgb(227, 230, 242);
+  color: rgb(80, 80, 80);
+
+}
+
+input {
+  width: 125px;
+  margin-left: 10px;
+  border-bottom: 2px solid;
+}
+
+input:focus {
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  border-bottom: 2px solid;
+  outline: 0;
+  color: none;
+}
+
+p {
   margin: 0;
 }
-.adress {
-  display: flex;
+
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 
-.header{
-  font-size: 2rem;
-}
-
-.actions{
+.input {
   display: flex;
-  height: auto;
-  padding: 0 20px;
-}
-
-.normal-price, .sedex-price{
-  display: flex;
-  justify-content: space-between;
   align-items: center;
 }
-.normal-price, .sedex-price{
- font-size: 1.5rem;
-}
 
-.normal-price p, .sedex-price p{
+.input-header {
   display: flex;
+  height: 2.5em;
 }
-.mat-mdc-form-field{
+
+.adress {
   display: flex;
-  width: 100%;
+  width: fit-content;
 }
 
-.mdc-button{
-  height: auto;
+.delivery {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
 }
 
-.description p{
-  font-size: 1rem;
+.sedex-delivery {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
 }
 
+button {
+  margin-left: 5%;
+  border: none;
+  background: none;
+  white-space: nowrap;
+  color: rgb(80, 80, 80);
+
+}
+
+button:hover {
+  color: rgb(44, 44, 44);
+}
+button:disabled {
+  color: rgb(80, 80, 80);
+}
+
+.price {
+  margin-left: 25%;
+}
+.time{
+  font-size: 0.85rem;
+  white-space: nowrap;
+
+}
 .cep-invalid{
   color: red;
 }
 
-
+.loading-spinner{
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+.loading-spinner p{
+  margin: 0 20px;
+}
+a{
+  border-bottom: 1px solid;
+}
+a:hover{
+  color: blue;
+}

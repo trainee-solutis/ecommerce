@@ -2,13 +2,13 @@ import { Component } from "@angular/core";
 import { Cep, Shipping } from "app/models/cep";
 import { ShippingService } from "app/services/shipping.service";
 
+
 @Component({
   selector: "app-calculate-shipping",
   templateUrl: "./calculate-shipping.component.html",
   styleUrls: ["./calculate-shipping.component.css"]
 })
 export class CalculateShippingComponent {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   formData: any = {
     ceporigem: "41820020",
     cepdestino: "",
@@ -27,21 +27,19 @@ export class CalculateShippingComponent {
   }
 
   processarDados() {
+
     this.isLoading = true;
 
     const { ceporigem, cepdestino, peso, altura, largura, comprimento, suaChave } = this.formData;
-
     this.shippingService.getCep(cepdestino).subscribe(res => {
       this.cepData = res;
-      console.log(res);
-
       this.shippingService.getFrete(ceporigem, cepdestino, peso, altura, largura, comprimento, suaChave).subscribe(data => {
         this.freteData = data;
-        console.log(data);
       }, error => {
         console.error("Erro na requisição do frete:", error);
       });
     });
   }
-
 }
+
+
