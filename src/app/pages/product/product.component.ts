@@ -15,7 +15,7 @@ export class ProductComponent implements OnInit {
   product!: Product;
 
   button1 = 'Adicionar a sacola';
-  button2 = 'Comprar Agora';
+  button2 = 'Comprar agora';
 
 
   constructor(private route: ActivatedRoute, private productService: ProductsService, private breadcrumbService: BreadcrumbService) {

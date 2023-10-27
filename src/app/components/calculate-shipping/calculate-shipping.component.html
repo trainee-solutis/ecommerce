@@ -7,7 +7,7 @@
         <input  [(ngModel)]="formData.cepdestino" #cep="ngModel" maxlength="8" name="cepdestino"
           pattern="[0-9]+" validadorCep>
       </div>
-      <button [disabled]="cep.invalid  ||  cep.pending">Calcular Frete</button>
+      <button [ngClass]="{'text-secondary': cep.invalid || cep.pending, 'text-primary fw-bold': cep.valid}" [disabled]="cep.invalid || cep.pending">Calcular Frete</button>
     </div>
 
     <div *ngIf="cep?.errors?.['pattern']" class="cep-invalid">
@@ -46,7 +46,9 @@
     </div>
   </ng-template>
 </form>
-<div class="forget-cep">
-  <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank">Não sei meu cep</a>
+<div class="d-flex align-items-center justify-content-center">
+  <a href="https://buscacepinter.correios.com.br/app/endereco/index.php?t" target="_blank">
+    <i class="material-icons">help_outline</i>
+    Não sei meu CEP </a>
 </div>
 </div>
