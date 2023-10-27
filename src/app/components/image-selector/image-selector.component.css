@@ -1,0 +1,46 @@
+.product-img{
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.col-main-img{
+    width: 80%;
+}
+
+.col-small-imgs{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.small-imgs{
+  display: flex;
+  height: auto;
+  margin-right: 5px;
+}
+
+.small-imgs img{
+  width: 90px;
+  height: 90px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0, 0.3);
+}
+
+.small-imgs img:hover{
+  border: 0.5px solid #000;
+  transform: scale(1.2);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0, 0.3);
+}
+
+::ng-deep .ngxImageZoomContainer{
+  max-height: auto;
+  max-width: 100%;
+}
+
+::ng-deep .ngxImageZoomContainer > img{
+  width: 550px;
+  height: 470px;
+}

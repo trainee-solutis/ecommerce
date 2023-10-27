@@ -1,1 +1,18 @@
-<p>image-selector works!</p>
+<div class="product-img">
+  <div class="col-small-imgs">
+    <div class="small-imgs" *ngFor="let image of images; index as i">
+      <img [src]="image"
+      (click)="changeMainImage(image)"
+      *ngIf="i >= currentIndex && i < currentIndex +4">
+    </div>
+  </div>
+  <div class="col-main-img">
+    <div class="main-img">
+        <lib-ngx-image-zoom
+        [thumbImage]="mainImage"
+        [fullImage]="mainImage"
+        [magnification]="1"
+      ></lib-ngx-image-zoom>
+    </div>
+  </div>
+</div>
