@@ -14,6 +14,10 @@ export class ProductComponent implements OnInit {
   private id: number;
   product!: Product;
 
+  button1 = 'Adicionar a sacola';
+  button2 = 'Comprar Agora';
+
+
   constructor(private route: ActivatedRoute, private productService: ProductsService, private breadcrumbService: BreadcrumbService) {
     this.id = this.route.snapshot.params["id"];
   }
