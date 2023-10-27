@@ -1,6 +1,7 @@
-import { NgIf } from "@angular/common";
+import { NgForOf, NgIf } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router";
 import { NgbCarouselConfig, NgbCarouselModule } from "@ng-bootstrap/ng-bootstrap";
 import { Product } from "app/models/product";
 import { ProductsService } from "app/services/products.service";
@@ -8,7 +9,7 @@ import { ProductsService } from "app/services/products.service";
 @Component({
   selector: "app-carousel",
   standalone: true,
-  imports: [NgbCarouselModule, NgIf, FormsModule],
+  imports: [NgbCarouselModule, NgIf, FormsModule, NgForOf, RouterModule],
   providers: [NgbCarouselConfig],
   templateUrl: "./carousel.component.html",
   styleUrls: ["./carousel.component.css"]
@@ -16,16 +17,11 @@ import { ProductsService } from "app/services/products.service";
 export class CarouselComponent implements OnInit{
 
   products!: Array<Product>;
-  images: string[] = [];
 
   ngOnInit(): void {
     this.productsService.getProducts().subscribe((products) => {
-      this.products = products;
-      products.forEach((product) => {
-        this.images.push(product.images[0]);
-      });
+      this.products = products.slice(0, 4);
     });
-
   }
 
 

@@ -35,6 +35,8 @@ import { ButtonComponent } from "./components/button/button.component";
 import { CepValidatorDirective } from "./directives/cep-validator.directive";
 import { NgxImageZoomModule } from "ngx-image-zoom";
 
+import { CommonModule } from "@angular/common";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { NgxImageZoomModule } from "ngx-image-zoom";
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     FormsModule,
+    RouterModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
