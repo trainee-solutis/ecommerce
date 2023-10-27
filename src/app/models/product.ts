@@ -3,7 +3,7 @@ export interface Product{
   name: string,
   description:string,
   rate: number,
-  image: string,
+  images: Array<string>,
   prices: Array<Price>,
   technicalDescription: TechnicalDescription,
   rating: Array<Rating>,
