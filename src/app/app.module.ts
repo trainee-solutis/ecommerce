@@ -24,6 +24,7 @@ import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { HomeComponent } from "./pages/home/home.component";
 import { ProductComponent } from "./pages/product/product.component";
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ProductComponent } from "./pages/product/product.component";
     ModalComponent,
     ProductSliderComponent,
     DatasheetComponent,
-    DescriptionComponent
+    DescriptionComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
