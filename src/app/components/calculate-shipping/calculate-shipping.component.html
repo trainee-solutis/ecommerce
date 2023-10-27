@@ -1,4 +1,6 @@
+<div class="container">
 <form #f="ngForm" (ngSubmit)="processarDados()">
+
   <div class="form">
     <div class="input-header">
       <div class="input">
@@ -30,7 +32,7 @@
         <div class="sedex-delivery">
           <p>Entrega Sedex&nbsp;&nbsp;</p>
           <div class="price">
-            <p>{{freteData.valorsedex}}</p>
+            <p>R$ {{freteData.valorsedex}}</p>
             <p class="time">Até {{freteData.prazosedex}} dias úteis</p>
           </div>
         </div>
@@ -46,4 +48,5 @@
 </form>
 <div class="forget-cep">
   <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank">Não sei meu cep</a>
+</div>
 </div>

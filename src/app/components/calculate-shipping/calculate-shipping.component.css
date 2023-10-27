@@ -1,13 +1,22 @@
-.form{
-  width: fit-content;
-  padding: 0px 20px;
-  color: gray;
+.container {
+  margin: 0;
+  padding: 0;
 }
+.form{
+  max-width: 22.5rem;
+  border: none;
+  padding: 0.625rem 1.75rem;
+  border-radius: 3px;
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #000000;
+}
+
 .form,
 input {
   border: none;
-  background-color: rgb(227, 230, 242);
-  color: rgb(80, 80, 80);
+  background-color:#f0f0f0;
+  color: #000000;
 
 }
 
@@ -67,15 +76,15 @@ button {
   border: none;
   background: none;
   white-space: nowrap;
-  color: rgb(80, 80, 80);
+  color: #000000;
 
 }
 
 button:hover {
-  color: rgb(44, 44, 44);
+  color: #000000;
 }
 button:disabled {
-  color: rgb(80, 80, 80);
+  color: #000000;
 }
 
 .price {
@@ -103,4 +112,75 @@ a{
 }
 a:hover{
   color: blue;
+}
+
+
+@media (max-width: 992px) {
+  .form {
+    max-width: 16.25rem;
+    padding: 20px 0px;
+  }
+  button{
+    padding: 5px;
+  }
+  .input-header {
+    display: flex;
+    flex-direction: column;
+    height: 2.5em;
+  }
+  div.forget-cep {
+    display: flex;
+    justify-content: center;
+  }
+  .input {
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+  }
+  .input-content {
+    padding: 15px;
+  }
+  .time{
+    font-size: 0.85rem;
+    white-space: normal;
+
+  }
+}
+
+@media (max-width: 767px) {
+  .form {
+    max-width: 11.875rem;
+    padding: 15px 0px;
+  }
+  button{
+    padding: 0px;
+  }
+  div.forget-cep {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .adress {
+    display: flex;
+    width: fit-content;
+    font-size: 0.85rem;
+  }
+  .delivery {
+    display: flex;
+    align-items: center;
+    white-space: normal;
+    font-size: 0.8rem;
+
+  }
+
+  .sedex-delivery {
+    display: flex;
+    align-items: center;
+    white-space: normal;
+    font-size: 0.8rem;
+  }
+
+  .price, .time{
+    font-size: 0.7rem;
+  }
 }
