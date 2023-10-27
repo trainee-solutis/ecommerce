@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { Cep, Shipping } from "app/models/cep";
 import { ShippingService } from "app/services/shipping.service";
+import { environment } from "environments/environment";
 
 
 @Component({
@@ -16,7 +17,7 @@ export class CalculateShippingComponent {
     altura:  20,
     largura:  20,
     comprimento:  20, // cm até 100cm
-    suaChave: "5d19ccda5002fee70f27aaad232af7651107e098", //chave CEPCERTO
+    suaChave: environment.key_CEP,
   };
   freteData: Shipping | null = null;
   cepData: Cep | null = null;
