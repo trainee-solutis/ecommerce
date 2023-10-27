@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { MatDialogRef } from "@angular/material/dialog";
+import { ModalComponent } from "@components/modal/modal.component";
 import { Email } from "app/models/email";
 import { EmailSenderService } from "app/services/email-sender.service";
 
@@ -11,7 +13,7 @@ import { EmailSenderService } from "app/services/email-sender.service";
 export class FormComponent implements OnInit {
   formulario!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private emailService: EmailSenderService) {}
+  constructor(private formBuilder: FormBuilder, private emailService: EmailSenderService, private dialogRef: MatDialogRef<ModalComponent>) {}
 
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({
@@ -62,6 +64,7 @@ export class FormComponent implements OnInit {
 
       localStorage.removeItem("formData");
       this.formulario.reset();
+      this.dialogRef.close();
     } else {
       console.log("O formulário é inválido. Por favor, corrija os campos destacados.");
     }
