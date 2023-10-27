@@ -3,7 +3,7 @@
       <mat-label>Nome</mat-label>
       <input matInput type="text" formControlName="name" required>
       <mat-error *ngIf="formulario.get('name')?.errors && formulario.get('name')?.touched && formulario.get('name')?.dirty">
-        Por favor, insira um name válido.
+        Por favor, insira um nome válido.
       </mat-error>
       <mat-error *ngIf="formulario.get('name')?.errors?.['required'] && formulario.get('email')?.touched">
         O nome é <strong>obrigatorio</strong>
@@ -12,7 +12,7 @@
     <mat-form-field>
       <mat-label>E-mail</mat-label>
       <input matInput type="email" formControlName="email" required>
-      <mat-error *ngIf="formulario.get('email')?.errors && formulario.get('email')?.touched && formulario.get('email')?.dirty">
+      <mat-error *ngIf="formulario.get('email')?.errors?.['pattern'] && formulario.get('email')?.touched && formulario.get('email')?.dirty">
         Por favor, insira um email válido.
       </mat-error>
       <mat-error *ngIf="formulario.get('email')?.errors?.['required'] && formulario.get('email')?.touched">
@@ -53,5 +53,9 @@
         A mensagem é <strong>obrigatoria</strong>
       </mat-error>
     </mat-form-field>
-  <button color='primary' mat-raised-button type="submit" [disabled]="!formulario.valid">Enviar</button>
+    <div class="action-button">
+      <button color='primary' mat-raised-button type="submit" [disabled]="!formulario.valid">Enviar</button>
+      <button color='primary' mat-raised-button (click)="onClearData()">Limpar</button>
+    </div>
+
 </form>
