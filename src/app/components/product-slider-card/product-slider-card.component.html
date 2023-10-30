@@ -9,10 +9,8 @@
         <p class="p-slider__description">
             {{product?.description}}
         </p>
-        <div class="p-slider__rate">
-            <!-- <span class="fa fa-star checked" *ngFor="let index of getRateStar(true); let i = index"></span>
-            <span class="fa fa-star" *ngFor="let index of getRateStar(); let i = index"></span> -->
-            <app-stars [product]="product"></app-stars>
+        <div class="p-slider_rate">
+          <app-stars [product]="product"></app-stars>
         </div>
         <p class="p-slider__price">
             <span class="p-slider__price--dashed">R${{priceDefault}}</span><br>

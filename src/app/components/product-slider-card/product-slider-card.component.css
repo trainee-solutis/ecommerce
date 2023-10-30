@@ -57,14 +57,8 @@
     text-align: justify;
     width: 100%;
 }
-
-.p-slider__rate{
-    margin-top: 0.3em;
-    font-size: 0.8em;
-}
-
-.checked {
-    color: orange;
+app-stars{
+    font-size: 1rem;
 }
 
 .p-slider__price{

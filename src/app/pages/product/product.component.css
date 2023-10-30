@@ -45,9 +45,6 @@ h3 {
   color: greenyellow;
   font-size: 1rem;
 }
-
-
-
 .product__image-price-container{
   display: flex;
   align-items: center;
@@ -89,3 +86,6 @@ h3 {
   flex-direction: column;
 }
 
+app-stars{
+  font-size: 1.5rem;
+}
