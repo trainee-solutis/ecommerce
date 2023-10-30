@@ -1,17 +1,16 @@
-<form (ngSubmit)="goToProductPage(searchTerm)">
-  <div class="app-container d-flex justify-content-center gap-3">
+<form (ngSubmit)="goToProductPage()">
+  <div class="app-container d-flex justify-content-center gap-3 rounded">
     <input
       id="search-bar"
       type="text"
       class="form-control"
-      [(ngModel)]="searchTerm"
-      [ngModelOptions]="{ standalone: true }"
+      [(ngModel)]= "searchTerm"
       [ngbTypeahead]="search"
+      [ngModelOptions]="{standalone: true}"
       [inputFormatter]="formatter"
       [placeholder]="texto"
       [resultTemplate]="rt"
-      [editable]="false"
-      (keydown.enter)="goToProductPage(searchTerm)"
+      (keydown.enter)="goToProductPage()"
     />
     <button type="submit" class="btn btn-primary active">Buscar</button>
   </div>
@@ -19,8 +18,8 @@
 <hr />
 
 <ng-template #rt let-r="result" let-t="term">
-  <div [routerLink]="['/product', r.id]">
-    <img [src]="r.image" style="width: 2rem" />
+  <div class="d-flex gap-3 justify-content-center align-items-center" [routerLink]="['/product', r.id]">
+    <img [src]="r.images[0]" class="proportional-img rounded" />
     <ngb-highlight [result]="r.name" [term]="t"></ngb-highlight>
   </div>
 </ng-template>
