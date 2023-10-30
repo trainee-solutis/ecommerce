@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Product } from "app/models/product";
 import { ProductsService } from "app/services/products.service";
 import { BreadcrumbService } from "xng-breadcrumb";
@@ -10,23 +10,32 @@ import { BreadcrumbService } from "xng-breadcrumb";
   styleUrls: ["./product.component.css"]
 })
 export class ProductComponent implements OnInit {
-
-  private id: number;
   product!: Product;
+  id!: number;
 
-  button1 = 'Adicionar a sacola';
-  button2 = 'Comprar agora';
-
-
-  constructor(private route: ActivatedRoute, private productService: ProductsService, private breadcrumbService: BreadcrumbService) {
-    this.id = this.route.snapshot.params["id"];
-  }
+  btnAddToCart = "Adicionar a sacola";
+  btnBuy = "Comprar agora";
+  constructor(
+    private route: ActivatedRoute,
+    private productService: ProductsService,
+    private breadcrumbService: BreadcrumbService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.breadcrumbService.set("/", "Home");
-    this.productService.getProduct(this.id).subscribe((product) => {
-      this.product = product;
-      this.breadcrumbService.set(`product/${this.id}`, this.product.name);
-    });
+    this.id = this.route.snapshot.params['id'];
+    this.getProduct(this.id);
+  }
+
+  getProduct(id: number) {
+    this.productService.getProduct(id).subscribe(
+      (product) => {
+        this.product = product;
+        this.breadcrumbService.set(`product/${id}`, this.product.name);
+      },
+      () => this.router.navigate(['/'])
+    );
   }
 }
