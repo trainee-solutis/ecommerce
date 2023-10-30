@@ -1,13 +1,13 @@
 ngb-carousel {
-  max-width: 800px;
+  max-width: 100%;
   margin: 50px auto;
   cursor: pointer;
 }
 
 ngb-carousel img {
   width: 100%;
-  height: 500px;
-  outline: none;
+  height: 574px;
+  object-fit: cover;
 }
 
 ngb-carousel {
@@ -46,3 +46,10 @@ ngb-carousel {
   z-index: 20;
 }
 
+
+::ng-deep .carousel-indicators [data-bs-target]{
+  z-index: 20;
+  width: 14px;
+  height: 14px;
+  border-radius: 75%;
+}
