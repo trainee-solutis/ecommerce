@@ -23,14 +23,6 @@ export class ProductSliderCardComponent implements OnInit {
     this.image = this.product?.images[0] ?? "";
   }
 
-  getRateStar(filed?: boolean): Array<number> {
-    let rate = this.product?.rate ?? 0;
-    if(rate>5){
-      rate=5;
-    }
-    return filed ? new Array(rate) : new Array(5 - rate);
-  }
-
   getInstalment(): string {
     const price = this.product?.prices.find(p => p.type === "cartão de crédito");
     return price ? `ou ${price.installment}x de R$${price.value.toFixed(2)}` : "";
