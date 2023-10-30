@@ -1,5 +1,14 @@
 p {
   text-align: justify;
   hyphens: auto;
+}
 
+.header{
+  display: flex;
+  margin: 15px;
+  align-items: center;
+  justify-content: space-between;
+}
+::-webkit-scrollbar {
+  width: 0px;
 }

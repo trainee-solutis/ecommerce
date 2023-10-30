@@ -1,6 +1,9 @@
 <div  [ngSwitch]="data.valorRecebido">
-  <div *ngSwitchCase="1">
+  <div *ngSwitchCase="1">[
+  <div class="header">
     <h1 mat-dialog-title>Sobre Nós</h1>
+    <span mat-dialog-close class="material-icons">close</span>
+  </div>
     <mat-dialog-content class="mat-typography">
         <h2>Nossa Missão:</h2>
         <p>Nosso compromisso é claro: tornar a vida de nossos clientes mais simples, oferecendo produtos de alta qualidade a preços acessíveis. Acreditamos que todos merecem a chance de desfrutar de produtos excepcionais sem esvaziar os bolsos.</p>
@@ -16,18 +19,17 @@
         <p>Estamos constantemente evoluindo para atender melhor às suas necessidades. Enquanto olhamos para o futuro, estamos explorando novas tecnologias, aprimorando nossos processos e expandindo nosso catálogo. Nossa visão é crescer continuamente e nos tornar o e-commerce mais confiável e acessível do mercado.</p>
         <p>Agradecemos por escolher nossa loja como seu destino de compras online. Esperamos que sua experiência de compras seja incrível e que se junte a nós nesta jornada emocionante de proporcionar produtos de alta qualidade a preços acessíveis. Juntos, estamos transformando desejos em realidade, um cliente de cada vez.</p>
 </mat-dialog-content>
-      <mat-dialog-actions align="end">
-        <button  mat-button mat-dialog-close>Fechar</button>
-    </mat-dialog-actions>
+<br>
   </div>
 
   <div  *ngSwitchCase="2">
+    <div class="header">
     <h1 mat-dialog-title>FALE CONOSCO</h1>
+    <span mat-dialog-close class="material-icons">close</span>
+  </div>
     <mat-dialog-content class="mat-typography">
       <app-form></app-form>
     </mat-dialog-content>
-    <mat-dialog-actions>
-      <button  mat-button mat-dialog-close>Fechar</button>
-    </mat-dialog-actions>
+    <br>
   </div>
 </div>
