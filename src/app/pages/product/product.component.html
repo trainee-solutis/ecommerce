@@ -1,45 +1,48 @@
-<app-search-bar></app-search-bar>
 <div class="container">
-  <xng-breadcrumb separator=">" class="breadcrumb"></xng-breadcrumb>
-  <h1 class="product__name">{{product.name}}</h1>
-  <div class="product__image-price-container">
-    <div class="product__images">
-      <app-image-selector [product]="product"></app-image-selector>
-    </div>
-    <div class="product__infos">
-      <app-stars [product]="product"></app-stars>
-      <ng-template ngFor let-item [ngForOf]="product.prices">
-        <ng-container [ngSwitch]="item.type">
-          <p *ngSwitchCase="'default'" class="product__price" [ngClass]="{'price__value--emphasis': !item.discount, 'price__value--dashed': item.discount}">
-            R${{item.value}}
-          </p> <!-- valor original sem desconto -->
-          <div *ngSwitchCase="'pix'" class="product__price">
-            <span class="price__value--emphasis">R${{item.value}}</span> no pix
-            <div *ngIf="product.prices[0].discount">
-              <p class="product__price--discount">({{product.prices[0].discount}}% de desconto)</p>
-            </div>
-          </div> <!-- valor com desconto no pix -->
+  <app-search-bar></app-search-bar>
+  <div class="container">
+    <xng-breadcrumb separator=">" class="breadcrumb"></xng-breadcrumb>
+    <h1 class="product__name">{{product.name}}</h1>
+    <div class="product__image-price-container">
+      <div class="product__images">
+        <app-image-selector [product]="product"></app-image-selector>
+      </div>
+      <div class="product__infos">
+        <app-stars [product]="product"></app-stars>
+        <ng-template ngFor let-item [ngForOf]="product.prices">
+          <ng-container [ngSwitch]="item.type">
+            <p *ngSwitchCase="'default'" class="product__price" [ngClass]="{'price__value--emphasis': !item.discount, 'price__value--dashed': item.discount}">
+              R${{item.value}}
+            </p> <!-- valor original sem desconto -->
+            <div *ngSwitchCase="'pix'" class="product__price">
+              <span class="price__value--emphasis">R${{item.value}}</span> no pix
+              <div *ngIf="product.prices[0].discount">
+                <p class="product__price--discount">({{product.prices[0].discount}}% de desconto)</p>
+              </div>
+            </div> <!-- valor com desconto no pix -->
 
-          <ng-container *ngSwitchDefault>
-            <p *ngIf="item.interest; else noInterest" class="product__price">
-              ou R${{item.value}} em {{item.installment}}x com juros no {{item.type}}
-            </p> <!-- valor no cartão com juros -->
-            <ng-template #noInterest>
-              <p class="product__price">
-                ou R${{item.value}} em {{item.installment}}x sem juros no {{item.type}}
-              </p> <!-- valor no cartão sem juros -->
-            </ng-template>
+            <ng-container *ngSwitchDefault>
+              <p *ngIf="item.interest; else noInterest" class="product__price">
+                ou R${{item.value}} em {{item.installment}}x com juros no {{item.type}}
+              </p> <!-- valor no cartão com juros -->
+              <ng-template #noInterest>
+                <p class="product__price">
+                  ou R${{item.value}} em {{item.installment}}x sem juros no {{item.type}}
+                </p> <!-- valor no cartão sem juros -->
+              </ng-template>
+            </ng-container>
           </ng-container>
-        </ng-container>
-      </ng-template>
+        </ng-template>
 
-      <div class="button-container">
-        <app-button [texto]="button1" class="button1"></app-button>
-        <app-button [texto]="button2"></app-button>
-        <app-calculate-shipping></app-calculate-shipping>
+        <div class="button-container">
+          <app-button [texto]="button1" class="button1"></app-button>
+          <app-button [texto]="button2"></app-button>
+          <app-calculate-shipping></app-calculate-shipping>
+        </div>
       </div>
     </div>
+    <app-description [product]="product"></app-description>
+    <app-datasheet [product]="product"></app-datasheet>
   </div>
-  <app-description [product]="product"></app-description>
-  <app-datasheet [product]="product"></app-datasheet>
+
 </div>
