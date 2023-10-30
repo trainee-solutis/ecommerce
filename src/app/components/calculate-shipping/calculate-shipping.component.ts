@@ -1,4 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Output } from "@angular/core";
+import { MatDialog } from "@angular/material/dialog";
+import { ModalComponent } from "@components/modal/modal.component";
 import { Cep, Shipping } from "app/models/cep";
 import { ShippingService } from "app/services/shipping.service";
 import { environment } from "environments/environment";
@@ -23,8 +25,13 @@ export class CalculateShippingComponent {
   cepData: Cep | null = null;
   isLoading: boolean = false;
 
-  constructor(private shippingService: ShippingService) {
+  constructor(private shippingService: ShippingService,public dialog: MatDialog) {
 
+  }
+  openDialog(valorRecebido: number) {
+    const dialogRef = this.dialog.open(ModalComponent, {
+      data: { valorRecebido }
+    });
   }
 
   processarDados() {
