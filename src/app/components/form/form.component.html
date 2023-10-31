@@ -41,7 +41,7 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Mensagem</mat-label>
-      <textarea matInput #myInput cdkTextareaAutosize formControlName="message" required maxlength="1000" minlength="30"></textarea>
+      <textarea matInput #myInput cdkTextareaAutosize formControlName="message" required maxlength="1000" minlength="30" rows="5"></textarea>
       <mat-hint>{{myInput.value.length}} / 1000</mat-hint>
       <mat-error *ngIf="formulario.get('message')?.errors?.['minlength'] && formulario.get('message')?.touched && formulario.get('message')?.dirty">
         A mensagem deve ter no minimo 30 caracters.
