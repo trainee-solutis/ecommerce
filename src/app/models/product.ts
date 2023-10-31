@@ -31,3 +31,4 @@ export interface Rating {
   stars: number,
   message: string,
 }
+
