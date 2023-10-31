@@ -1,15 +1,7 @@
-app-footer{
-  margin-top: auto;
+app-header, .app-content, app-footer{
+  width: 100%;
 }
 
-.container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.app-content{
+  flex: 1;
 }
-
-.content{
-  width: 80%;
-}
-
