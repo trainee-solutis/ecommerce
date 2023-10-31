@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Basket } from 'app/models/product';
 
 @Component({
   selector: 'app-basket',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./basket.component.css']
 })
 export class BasketComponent {
-
+  listaDeProdutos: Basket[] = []
 }

@@ -31,3 +31,15 @@ export interface Rating {
   stars: number,
   message: string,
 }
+
+export interface Basket {
+  products?:[
+    {
+      product: Product,
+      quantity: number,
+    }
+  ]
+  quantity: number,
+  total: number,
+  shipping: number,
+}
