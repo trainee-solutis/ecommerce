@@ -37,6 +37,7 @@ import { NgxImageZoomModule } from "ngx-image-zoom";
 
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
+import { BasketComponent } from './pages/basket/basket.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { RouterModule } from "@angular/router";
     ImageSelectorComponent,
     CalculateShippingComponent,
     CepValidatorDirective,
-    FormComponent
+    FormComponent,
+    BasketComponent
   ],
   imports: [
     BrowserModule,
