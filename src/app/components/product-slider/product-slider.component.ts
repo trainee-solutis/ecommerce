@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component,Input, OnInit } from "@angular/core";
 import { Product } from "app/models/product";
 
 
@@ -13,12 +13,8 @@ export class ProductSliderComponent implements OnInit {
   @Input() title: string = "";
   @Input() products?: Product[] = [];
 
-  constructor(//private service: ProductsService
-  ) { }
+  constructor() { }
   ngOnInit(): void {
-    // this.service.getProducts().subscribe((products) => {
-    //   this.products = products;
-    // });
 
   }
 }
