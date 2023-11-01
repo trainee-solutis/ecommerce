@@ -32,9 +32,13 @@ img{
   margin-right: 27px;
 }
 .link-container a:hover{
-  color: #AB3964;
+  color: #1A1A1A;
 }
 .nav-container{
   display: flex;
   gap: 60px;
+}
+
+.bi-basket {
+  margin-right: 10px;
 }

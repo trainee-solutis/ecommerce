@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { ModalComponent } from "@components/modal/modal.component";
+import { BasketService } from "app/services/basket/basket.service";
 
 @Component({
   selector: "app-header",
@@ -8,13 +9,18 @@ import { ModalComponent } from "@components/modal/modal.component";
   styleUrls: ["./header.component.css"],
 })
 export class HeaderComponent implements OnInit {
-  constructor(public dialog: MatDialog) {}
+  quantity!: number;
 
+  constructor(public dialog: MatDialog, public basket: BasketService) {}
   openDialog(valorRecebido: number) {
     const dialogRef = this.dialog.open(ModalComponent, {
       data: { valorRecebido }
     });
   }
   ngOnInit(): void {
+     this.basket.getTotalItemsInBasket().then(
+      (quantity)=>{this.quantity = quantity}
+    );
   }
+
 }

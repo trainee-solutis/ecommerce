@@ -9,8 +9,10 @@
         <button mat-raised-button (click)="openDialog(2)">Fale conosco</button>
       </div>
       <div class="link-container">
-        <a class="mat-body-2" routerLink="/basket">Sacola</a>
-        <a class="mat-body-2" href="#">Perfil</a>
+        <a href=""><i class="bi bi-person-circle"></i></a>
+        <a class="basket" routerLink="/basket">
+          <i class="bi bi-basket" mat-raised-button [matBadge]="quantity" matBadgeColor="accent" matBadgeSize="small"></i>
+        </a>
       </div>
     </div>
   </div>
