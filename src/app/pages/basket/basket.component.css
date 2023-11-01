@@ -1,0 +1,19 @@
+
+
+.button-container {
+  display: flex;
+  justify-content: end;
+}
+
+button {
+  border: none;
+  padding: 10px 40px;
+  border-radius: 10px;
+}
+
+
+.btn-buy {
+  background-color: #0d6efd;
+  color: #fff;
+  margin-left: 20px;
+}
