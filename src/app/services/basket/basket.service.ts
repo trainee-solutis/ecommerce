@@ -39,14 +39,6 @@ export class BasketService {
     return this.basket = payload['basket'] as Basket;
   }
 
-  async updateBasket(basket: Basket): Promise<void> {
-    this.getBasket().then(() => {
-      this.basket = basket;
-    });
-
-    await this.generateBasket();
-  }
-
   async addProductToBasket(product: Product): Promise<void> {
     await this.getBasket();
     const existProduct = this.basket.products?.find(p => p.product?.id === product.id);
@@ -61,7 +53,7 @@ export class BasketService {
 
     this.basket.total += product.prices[0].value;
 
-    await this.updateBasket(this.basket);
+    await this.generateBasket();
   }
 
   async removeProductFromBasket(product: Product): Promise<void> {
@@ -74,7 +66,7 @@ export class BasketService {
       }
     });
 
-    this.generateBasket();
+    await this.generateBasket();
   }
 
   async deleteProductFromBasket(product: Product): Promise<void> {
@@ -85,7 +77,7 @@ export class BasketService {
       }
     });
 
-    this.generateBasket();
+    await this.generateBasket();
   }
 
   async getTotalBasket(): Promise<number> {
@@ -96,6 +88,15 @@ export class BasketService {
   async getProductList(): Promise<{}> {
     await this.getBasket();
     return this.basket.products;
+  }
+
+  async getTotalItemsInBasket(): Promise<number>{
+    await this.getBasket();
+    let total = 0;
+    this.basket.products?.forEach((product) => {
+      total += product.quantity;
+    });
+    return total;
   }
 
 }
