@@ -1,0 +1,14 @@
+img {
+  width: 400px;
+  height: 400px;
+}
+.no-products{
+  text-align: center;
+}
+
+.container-no-products{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

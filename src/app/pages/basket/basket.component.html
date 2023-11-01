@@ -3,7 +3,13 @@
   <div *ngIf="listaDeProdutos.length !== 0; else naoTemProdutos">
     <h3>Seu carrinho de compras</h3>
   </div>
-  <ng-template #naoTemProdutos>
-    <h3>Seu carrinho de compras está vazio!</h3>
+  <ng-template  #naoTemProdutos>
+    <div class="container-no-products">
+      <div class="no-products">
+        <h3>Seu carrinho de compras está vazio! :( </h3>
+        <a mat-button routerLink="/">Escolher produtos</a>
+      </div>
+      <img src="/assets/addToCart.svg" alt="">
+    </div>
   </ng-template>
 </div>
