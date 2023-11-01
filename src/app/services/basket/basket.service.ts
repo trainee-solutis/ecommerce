@@ -57,27 +57,20 @@ export class BasketService {
   }
 
   async removeProductFromBasket(product: Product): Promise<void> {
-    this.getBasket().then(() => {
-      const existProduct = this.basket.products?.find(p => p.product?.id === product.id);
-      if (existProduct?.quantity === 1) {
-        this.basket.products?.splice(this.basket.products?.indexOf(existProduct), 1);
-      } else if (existProduct) {
+    await this.getBasket();
+    const existProduct = this.basket.products?.find(p => p.product?.id === product.id);
+    if (existProduct) {
+      if (existProduct.quantity === 1) {
+        const index = this.basket.products?.indexOf(existProduct);
+        if (index !== undefined && index !== null) {
+          this.basket.products?.splice(index, 1);
+        }
+      } else {
         existProduct.quantity--;
       }
-    });
-
-    await this.generateBasket();
-  }
-
-  async deleteProductFromBasket(product: Product): Promise<void> {
-    this.getBasket().then(() => {
-      const existProduct = this.basket.products?.find(p => p.product?.id === product.id);
-      if (existProduct) {
-        this.basket.products?.splice(this.basket.products?.indexOf(existProduct), 1);
-      }
-    });
-
-    await this.generateBasket();
+      this.basket.total -= product.prices[0].value;
+      await this.generateBasket();
+    }
   }
 
   async getTotalBasket(): Promise<number> {
