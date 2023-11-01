@@ -38,7 +38,7 @@ import { NgxImageZoomModule } from "ngx-image-zoom";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { BasketComponent } from './pages/basket/basket.component';
-
+import {MatBadgeModule} from '@angular/material/badge';
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,6 +85,7 @@ import { BasketComponent } from './pages/basket/basket.component';
     ReactiveFormsModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatBadgeModule
   ],
   providers: [
     BreadcrumbService,
