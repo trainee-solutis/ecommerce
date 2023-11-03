@@ -1,6 +1,6 @@
 import { Directive } from "@angular/core";
 import { AbstractControl, AsyncValidator, NG_ASYNC_VALIDATORS, ValidationErrors } from "@angular/forms";
-import { Observable, map } from "rxjs";
+import { Observable, map, of } from "rxjs";
 import { ShippingService } from "app/services/shipping.service";
 
 @Directive({
@@ -14,11 +14,18 @@ import { ShippingService } from "app/services/shipping.service";
 export class CepValidatorDirective implements AsyncValidator{
 
   constructor( private shippingService : ShippingService) { }
-  validate(control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
+  validate(control: AbstractControl): Observable<ValidationErrors | null> {
     const cep = control.value;
 
-    return this.shippingService.getCep(cep).pipe(map(
-      (resultado:any)=> resultado.erro ? { "validadorCep" :  true} : null
-    ));
+    if (!cep || String(cep).length !== 8) {
+      return of({ "invalidCepLength": true });
+    }
+
+    return this.shippingService.getCep(cep).pipe(
+      map((resultado: any) => {
+        return resultado.erro ? { "invalidCep": true } : null;
+      }))
+
+
   }
 }
