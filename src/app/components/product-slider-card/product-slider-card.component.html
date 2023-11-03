@@ -1,13 +1,13 @@
-<div class="p-slider__card" (click)="redirectToProduct()">
+<div class="p-slider__card" *ngIf="product" (click)="redirectToProduct()">
     <div class="p-slider__image-container">
-        <img src="{{image}}" alt="{{product?.name}}" class="p-slider__image">
+        <img src="{{image}}" alt="{{product.name}}" class="p-slider__image">
     </div>
     <div class="p-slider__header">
         <a class="p-slider__title">
-            {{product?.name}}
+            {{product.name}}
         </a>
         <p class="p-slider__description">
-            {{product?.description}}
+            {{product.description}}
         </p>
         <div class="p-slider_rate">
           <app-stars [product]="product"></app-stars>

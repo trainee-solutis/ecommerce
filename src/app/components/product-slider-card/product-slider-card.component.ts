@@ -9,27 +9,28 @@ import { Product } from "app/models/product";
 })
 export class ProductSliderCardComponent implements OnInit {
 
-  @Input() product? : Product;
+  @Input() product! : Product;
   pricePix!: number;
   priceDefault!: number;
   image!: string;
 
   constructor(private router: Router) {
+
   }
 
   ngOnInit(): void {
-    this.priceDefault = this.product?.prices[0].value ?? 0;
-    this.pricePix = this.product?.prices[1].value ?? 0;
-    this.image = this.product?.images[0] ?? "";
+    this.priceDefault = this.product.prices[0].value ?? 0;
+    this.pricePix = this.product.prices[1].value ?? 0;
+    this.image = this.product.images[0] ?? "";
   }
 
   getInstalment(): string {
-    const price = this.product?.prices.find(p => p.type === "cartão de crédito");
+    const price = this.product.prices.find(p => p.type === "cartão de crédito");
     return price ? `ou ${price.installment}x de R$${price.value.toFixed(2)}` : "";
   }
 
   redirectToProduct(): void {
-    this.router.navigate(["/product", this.product?.id]);
+    this.router.navigate(["/product", this.product.id]);
   }
 
 }

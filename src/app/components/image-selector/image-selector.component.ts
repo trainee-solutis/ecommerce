@@ -17,7 +17,6 @@ export class ImageSelectorComponent implements OnInit{
       if (this.product.images) {
         this.images = this.product.images;
       }
-      console.log(this.images);
     }
 
     this.mainImage = this.images[0];
