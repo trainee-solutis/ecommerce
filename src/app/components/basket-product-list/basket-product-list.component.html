@@ -5,26 +5,28 @@
       <th>Quantidade</th>
       <th>Valor</th>
     </tr>
-      <ng-container *ngFor="let product of basket">
+      <ng-container *ngFor="let product of basket.products">
         <tr>
         <td>
           <div class="item">
-            <img src="{{product.images[0]}}">
+            <img src="{{product.product.images[0]}}">
             <div class="product-name">
-              <p>{{product.name}}</p>
-              <small>{{product.description}}</small>
+              <p>{{product.product.name}}</p>
+              <small>{{product.product.description}}</small>
             </div>
           </div>
         </td>
         <td class="quantity-control">
           <div class="quantity-input">
-            <input type="number" [(ngModel)]="value">
-            <button type="button" class="btn btn-primary" (click)="increment()">+</button>
-            <button type="button" class="btn btn-primary" (click)="decrement()">-</button>
-            <a href="#">Remover</a>
+            <input type="number" class="quantity" value="{{product.quantity}}">
+            <div class="d-flex flex-column gap-3 p-2">
+              <button type="button" class="btn btn-primary" (click)="increment(product.product)">+</button>
+              <button type="button" class="btn btn-primary" (click)="decrement(product.product)">-</button>
+            </div>
+            <button class="btn btn-danger" (click)="remove(product.product)">Remover</button>
           </div>
         </td>
-        <td> R$ {{product.prices[0].value}} </td>
+        <td> R$ {{product.product.prices[0].value * product.quantity}} </td>
       </tr>
       </ng-container>
   </table>

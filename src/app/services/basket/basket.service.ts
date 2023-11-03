@@ -86,6 +86,8 @@ export class BasketService {
         existProduct.quantity--;
       }
 
+      this._quantity.next(this._quantity.value - 1);
+
       await this.generateBasket();
 
       await this.generatePaymentMethods();

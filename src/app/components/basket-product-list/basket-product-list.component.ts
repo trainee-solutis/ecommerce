@@ -1,6 +1,9 @@
 import { ProductsService } from 'app/services/products.service';
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'app/models/product';
+import { Basket } from 'app/models/basket';
+import { BasketService } from 'app/services/basket/basket.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -10,32 +13,36 @@ import { Product } from 'app/models/product';
 })
 export class BasketProductListComponent implements OnInit{
 
+  basket!: Basket;
 
-
-  basket: Product[] = [];
+  constructor(private service: BasketService){
+  }
 
   ngOnInit(): void {
-    this.productsService.getProducts().subscribe(basket => {
+    this.service.getBasket().then(basket => {
       this.basket = basket;
-      console.log(this.basket);
     });
   }
 
-
-  constructor(private productsService: ProductsService){
-
-  }
-
-  value: number = 1;
-
-  increment(){
-    this.value++;
-  }
-
-  decrement(){
-    if(this.value > 1){
-      this.value--;
+  increment(product: Product){
+    const basketProduct = this.basket.products?.find(p => p.product?.id === product.id);
+    if (basketProduct) {
+      basketProduct.quantity++;
     }
+    this.service.addProductToBasket(product);
+  }
+
+  decrement(product: Product){
+    const basketProduct = this.basket.products?.find(p => p.product?.id === product.id);
+    if (basketProduct && basketProduct.quantity > 1) {
+      basketProduct.quantity--;
+      this.service.removeProductFromBasket(product);
+    }
+  }
+
+  remove(product: Product){
+    this.service.deleteProductFromBasket(product);
+    window.location.reload();
   }
 
 }
