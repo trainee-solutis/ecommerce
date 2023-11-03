@@ -121,6 +121,15 @@ export class BasketService {
     await this.generateBasket();
   }
 
+  async getTotalItemsInBasket(): Promise<number>{
+    await this.getBasket();
+    let total = 0;
+    this.basket.products?.forEach((product) => {
+      total += product.quantity;
+    });
+    return total;
+  }
+
   async getProducts(): Promise<Product[]> {
     await this.getBasket();
     return this.basket.products?.map((p) => p.product) ?? [];
