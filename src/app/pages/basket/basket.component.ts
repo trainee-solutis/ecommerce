@@ -28,4 +28,12 @@ export class BasketComponent {
       this.loaded = true;
     });
   }
+
+  generateInstallments(): number {
+    const quantity = this.basket.total[2].installment;
+
+    const result = quantity ? this.basket.total[2].value / quantity : 0;
+    return parseFloat(result.toFixed(2))
+
+  }
 }
