@@ -9,18 +9,21 @@ import { BasketService } from "app/services/basket/basket.service";
   styleUrls: ["./header.component.css"],
 })
 export class HeaderComponent implements OnInit {
-  quantity!: number;
+  quantity: number;
 
-  constructor(public dialog: MatDialog, public basket: BasketService) {}
+  constructor(public dialog: MatDialog, public basketService: BasketService) {
+    this.quantity = 0;
+  }
+
   openDialog(valorRecebido: number) {
     const dialogRef = this.dialog.open(ModalComponent, {
       data: { valorRecebido }
     });
   }
   ngOnInit(): void {
-     this.basket.getTotalItemsInBasket().then(
-      (quantity)=>{this.quantity = quantity}
-    );
+    this.basketService.quantity$.subscribe(quantity => {
+      this.quantity = quantity;
+    });
   }
 
 }

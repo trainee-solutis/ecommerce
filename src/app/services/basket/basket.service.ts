@@ -3,13 +3,18 @@ import { Basket } from 'app/models/basket';
 import { Product } from 'app/models/product';
 import { environment } from 'environments/environment';
 import * as jose from 'jose';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class BasketService {
+
   private basket: Basket;
+
+  private _quantity = new BehaviorSubject<number>(0);
+  quantity$ = this._quantity.asObservable();
 
   constructor() {
 
@@ -18,6 +23,10 @@ export class BasketService {
       shipping: 0,
       total: [],
     };
+
+    this.getTotalItemsInBasket().then(total => {
+      this._quantity.next(total);
+    });
   }
 
   private secret = new TextEncoder().encode(
@@ -56,6 +65,8 @@ export class BasketService {
         quantity: 1,
       });
     }
+
+    this._quantity.next(this._quantity.value + 1);
 
     await this.generateBasket();
 
