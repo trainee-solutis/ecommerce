@@ -15,8 +15,8 @@ export class BasketService {
 
     this.basket = {
       products: [],
-      total: 0,
       shipping: 0,
+      total: [],
     };
   }
 
@@ -25,18 +25,24 @@ export class BasketService {
   );
 
   private async generateBasket(): Promise<void> {
-    const token = await new jose.SignJWT({basket: this.basket}).setProtectedHeader({alg: 'HS256'}).setIssuedAt().setExpirationTime('2h').sign(this.secret);
+    const token = await new jose.SignJWT({basket: this.basket}).setProtectedHeader({alg: 'HS256'}).setIssuedAt().setExpirationTime('3h').sign(this.secret);
     localStorage.setItem('basket', token);
   }
 
   async getBasket(): Promise<Basket> {
     const token = localStorage.getItem('basket');
     if (!token) {
-      this.generateBasket();
-      return this.basket;
+      await this.generateBasket();
+    } else {
+      try {
+        const { payload } = await jose.jwtVerify(token, this.secret);
+        this.basket = payload['basket'] as Basket;
+        await this.generateBasket();
+      } catch (error) {
+        await this.generateBasket();
+      }
     }
-    const {payload} = await jose.jwtVerify(token, this.secret);
-    return this.basket = payload['basket'] as Basket;
+    return this.basket;
   }
 
   async addProductToBasket(product: Product): Promise<void> {
@@ -51,9 +57,9 @@ export class BasketService {
       });
     }
 
-    this.basket.total += product.prices[0].value;
-
     await this.generateBasket();
+
+    await this.generatePaymentMethods();
   }
 
   async removeProductFromBasket(product: Product): Promise<void> {
@@ -68,19 +74,51 @@ export class BasketService {
       } else {
         existProduct.quantity--;
       }
-      this.basket.total -= product.prices[0].value;
+
       await this.generateBasket();
+
+      await this.generatePaymentMethods();
     }
   }
 
   async getTotalBasket(): Promise<number> {
     await this.getBasket();
-    return this.basket.total;
+    let total = 0;
+    this.basket.products?.forEach((product) => {
+      product.product.prices?.forEach((price) => {
+        total += price.value * product.quantity;
+      });
+    });
+    return total;
   }
 
-  async getProductList(): Promise<{}> {
+  async generatePaymentMethods(): Promise<void> {
     await this.getBasket();
-    return this.basket.products;
+    const paymentMethods: { type: string; value: number; installment?: number }[] = [];
+
+    this.basket.products?.forEach((product) => {
+      product.product.prices?.forEach((price) => {
+        const paymentMethod = paymentMethods.find((p) => p.type === price.type);
+
+        if (paymentMethod) {
+          paymentMethod.value += price.value * product.quantity;
+
+          if (price.installment && (!paymentMethod.installment || paymentMethod.installment > price.installment)) {
+            paymentMethod.installment = price.installment;
+          }
+        } else {
+          paymentMethods.push({
+            type: price.type,
+            value: price.value * product.quantity,
+            installment: price.installment
+          });
+        }
+      });
+    });
+
+    this.basket.total = paymentMethods;
+
+    await this.generateBasket();
   }
 
   async getTotalItemsInBasket(): Promise<number>{
@@ -92,4 +130,8 @@ export class BasketService {
     return total;
   }
 
+  async getProducts(): Promise<Product[]> {
+    await this.getBasket();
+    return this.basket.products?.map((p) => p.product) ?? [];
+  }
 }

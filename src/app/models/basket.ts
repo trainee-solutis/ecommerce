@@ -5,6 +5,6 @@ export interface Basket {
     product: Product,
     quantity: number,
   }[],
-  total: number,
+  total: { type: string; value: number; installment?: number }[],
   shipping: number,
 }

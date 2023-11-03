@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Product } from "app/models/product";
+import { BasketService } from "app/services/basket/basket.service";
 import { ProductsService } from "app/services/products.service";
 import { BreadcrumbService } from "xng-breadcrumb";
 
@@ -19,6 +20,7 @@ export class ProductComponent implements OnInit {
     private route: ActivatedRoute,
     private productService: ProductsService,
     private breadcrumbService: BreadcrumbService,
+    private basketService: BasketService,
     private router: Router
   ) {}
 
@@ -38,4 +40,18 @@ export class ProductComponent implements OnInit {
       () => this.router.navigate(['/'])
     );
   }
+
+  addToBuy() {
+    this.basketService.addProductToBasket(this.product);
+    this.router.navigate(['/basket']);
+  }
+
+  addToCart(){
+    this.btnAddToCart = "Adicionado a sacola!";
+    this.basketService.addProductToBasket(this.product);
+    setTimeout(() => {
+      this.btnAddToCart = "Adicionar a sacola";
+    }, 2000);
+  }
+
 }

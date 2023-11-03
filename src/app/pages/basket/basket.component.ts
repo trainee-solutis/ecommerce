@@ -61,9 +61,5 @@ export class BasketComponent {
 
   ngOnInit(): void {
 
-    this.service.getProductList().then((basket) => {
-      console.log(basket);
-    });
-
   }
 }

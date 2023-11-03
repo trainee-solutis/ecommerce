@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -7,4 +7,19 @@ import { Component, Input } from '@angular/core';
 })
 export class ButtonComponent {
   @Input() texto: string = '';
+  @Input() action: Function = () => {};
+  @Input() btnClass: string = 'btn btn-primary';
+  @Output() click = new EventEmitter<void>();
+
+  onClick() {
+    this.action();
+    this.click.emit();
+  }
+
+  added(){
+    this.btnClass = 'btn btn-success';
+    setInterval(() => {
+      this.btnClass = 'btn btn-primary';
+    }, 2000);
+  }
 }
