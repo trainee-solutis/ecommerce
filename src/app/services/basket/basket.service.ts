@@ -132,6 +132,11 @@ export class BasketService {
     await this.generateBasket();
   }
 
+  async getPaymentMethods(): Promise<{ type: string; value: number; installment?: number }[]> {
+    await this.getBasket();
+    return this.basket.total ?? [];
+  }
+
   async getTotalItemsInBasket(): Promise<number>{
     await this.getBasket();
     let total = 0;
