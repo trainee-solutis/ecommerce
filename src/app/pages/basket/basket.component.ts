@@ -20,11 +20,6 @@ export class BasketComponent {
       shipping: 0,
       total: [],
     };
-
-    this.service.getBasket().then(basket => {
-      this.basket = basket;
-    });
-
   };
 
   ngOnInit(): void {
