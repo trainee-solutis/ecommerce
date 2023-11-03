@@ -17,7 +17,10 @@ img {
   gap:15px;
   width: 100%;
   height: 100%;
+  justify-content: flex-end;
+  margin-top: 20px;
 }
+
 .list-price{
   display: flex;
   flex-direction: column;
