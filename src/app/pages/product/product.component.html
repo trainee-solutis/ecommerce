@@ -35,8 +35,8 @@
         </ng-template>
 
       <div class="button-container">
-        <app-button [texto]="btnAddToCart" class="button1"></app-button>
-        <app-button [texto]="btnBuy"></app-button>
+        <app-button #add [texto]="btnAddToCart" [action]="addToCart.bind(this)" (changeCssClass)="add.added()"></app-button>
+        <app-button [texto]="btnBuy" [action]="addToBuy.bind(this)"></app-button>
         <app-calculate-shipping></app-calculate-shipping>
       </div>
     </div>
