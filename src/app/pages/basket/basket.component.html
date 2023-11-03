@@ -1,6 +1,6 @@
 <div class="container">
   <app-search-bar></app-search-bar>
-  <div *ngIf="listaDeProdutos.length !== 0; else naoTemProdutos">
+  <div *ngIf="basket.products.length !== 0; else naoTemProdutos">
     <h3>Seu carrinho de compras</h3>
   </div>
   <ng-template  #naoTemProdutos>

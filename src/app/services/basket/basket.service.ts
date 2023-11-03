@@ -92,6 +92,21 @@ export class BasketService {
     }
   }
 
+  async deleteProductFromBasket(product: Product): Promise<void> {
+    await this.getBasket();
+    const existProduct = this.basket.products?.find(p => p.product?.id === product.id);
+    if (existProduct) {
+      const index = this.basket.products?.indexOf(existProduct);
+      if (index !== undefined && index !== null) {
+        this.basket.products?.splice(index, 1);
+      }
+
+      await this.generateBasket();
+
+      await this.generatePaymentMethods();
+    }
+  }
+
   async getTotalBasket(): Promise<number> {
     await this.getBasket();
     let total = 0;
