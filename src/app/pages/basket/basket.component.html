@@ -2,6 +2,14 @@
   <app-search-bar></app-search-bar>
   <div *ngIf="basket.products.length !== 0; else naoTemProdutos">
     <h3>Seu carrinho de compras</h3>
+    <div class="total-price-container">
+      <span class="title-price">Total</span>
+      <div class="list-price">
+        <p class="price-pix">R$ {{basket.total[1].value }} no pix</p>
+        <p class="price-card">ou R$ {{ basket.total[2].value }} no cartão</p>
+        <p class="installment">em até {{ basket.total[2].installment }}x de R${{ generateInstallments() }} s/ juros</p>
+      </div>
+    </div>
   </div>
   <ng-template  #naoTemProdutos>
     <div class="container-no-products">
