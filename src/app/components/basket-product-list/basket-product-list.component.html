@@ -1,0 +1,30 @@
+<div class="shopping-cart">
+  <table>
+    <tr class="title">
+      <th></th>
+      <th>Quantidade</th>
+      <th>Valor</th>
+    </tr>
+      <ng-container *ngFor="let product of basket">
+        <tr>
+        <td>
+          <div class="item">
+            <img src="{{product.images[0]}}">
+            <div class="product-name">
+              <p>{{product.name}}</p>
+              <small>{{product.description}}</small>
+            </div>
+          </div>
+        </td>
+        <td>
+          <input type="number" [(ngModel)]="value">
+          <button type="button" class="btn btn-primary" (click)="increment()">+</button>
+          <button type="button" class="btn btn-primary" (click)="decrement()">-</button>
+          <a href="#">Remover</a>
+        </td>
+        <td> R$ {{product.prices[0].value}} </td>
+      </tr>
+      </ng-container>
+  </table>
+
+</div>
