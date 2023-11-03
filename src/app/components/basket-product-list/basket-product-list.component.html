@@ -16,11 +16,13 @@
             </div>
           </div>
         </td>
-        <td>
-          <input type="number" [(ngModel)]="value">
-          <button type="button" class="btn btn-primary" (click)="increment()">+</button>
-          <button type="button" class="btn btn-primary" (click)="decrement()">-</button>
-          <a href="#">Remover</a>
+        <td class="quantity-control">
+          <div class="quantity-input">
+            <input type="number" [(ngModel)]="value">
+            <button type="button" class="btn btn-primary" (click)="increment()">+</button>
+            <button type="button" class="btn btn-primary" (click)="decrement()">-</button>
+            <a href="#">Remover</a>
+          </div>
         </td>
         <td> R$ {{product.prices[0].value}} </td>
       </tr>

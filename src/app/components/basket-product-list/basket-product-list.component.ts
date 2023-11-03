@@ -11,16 +11,6 @@ import { Product } from 'app/models/product';
 export class BasketProductListComponent implements OnInit{
 
 
-  value: number = 1;
-  increment(){
-    this.value++;
-  }
-
-  decrement(){
-    if(this.value > 1){
-      this.value--;
-    }
-  }
 
   basket: Product[] = [];
 
@@ -34,6 +24,18 @@ export class BasketProductListComponent implements OnInit{
 
   constructor(private productsService: ProductsService){
 
+  }
+
+  value: number = 1;
+
+  increment(){
+    this.value++;
+  }
+
+  decrement(){
+    if(this.value > 1){
+      this.value--;
+    }
   }
 
 }
