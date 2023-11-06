@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
+import { Component, Input, OnChanges, SimpleChanges } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { ModalComponent } from "@components/modal/modal.component";
 import { Basket } from "app/models/basket";
@@ -14,7 +14,7 @@ import { elementAt } from "rxjs";
   templateUrl: "./calculate-shipping.component.html",
   styleUrls: ["./calculate-shipping.component.css"]
 })
-export class CalculateShippingComponent implements OnInit, OnChanges{
+export class CalculateShippingComponent implements OnChanges{
   
   @Input() basket? : Basket;
   products? :{
@@ -22,13 +22,15 @@ export class CalculateShippingComponent implements OnInit, OnChanges{
     quantity: number,
   }[];
 
+  @Input() product? : Product;
+
   formData : ShippingRequisition = new ShippingRequisition("",0,0,0,0);
 
   dataRetuned: ShippingReturn | null = null;
 
   sedexPrice: number = 0;
   pacPrice: number = 0;
-  sedexDeliveryTime: number =0;
+  sedexDeliveryTime: number = 0;
   pacDeliveryTime: number = 0;
 
   cepData: Cep | null = null;
@@ -38,19 +40,23 @@ export class CalculateShippingComponent implements OnInit, OnChanges{
   constructor(private shippingService: ShippingService, public dialog: MatDialog) {
     
   }
+
   ngOnChanges(changes: SimpleChanges): void {
-    this.products = this.basket?.products
+    if (this.basket){
+      this.products = this.basket?.products
+    }
+    if(this.product){
+      this.products = new Array();
+      const data = {
+        product: this.product,
+        quantity: 1
+      }
+      this.products.push(data);
+    }
     if(this.formData.destinationZipCode.length == 8 ){
-      this.processarDados();
+      this.refreshData();
     }
   }
-
-
-  ngOnInit(): void {
-    this.products = this.basket?.products
-  }
-
-  
 
   openDialog(valorRecebido: number) {
     const dialogRef = this.dialog.open(ModalComponent, {
@@ -58,7 +64,7 @@ export class CalculateShippingComponent implements OnInit, OnChanges{
     });
   }
 
-  processarDados() {
+  refreshData() {
     this.isLoading = true;
     this.shippingService.getCep(this.formData.destinationZipCode).subscribe(returnData => {this.cepData = returnData;
       if(this.products){
@@ -75,20 +81,19 @@ export class CalculateShippingComponent implements OnInit, OnChanges{
   private calculatePrice(quantity: number) {
     this.shippingService.getFrete(this.formData.originZipCode, this.formData.destinationZipCode, this.formData.weight, this.formData.height, this.formData.width, this.formData.length, this.formData.accessKey).subscribe(returnedData => {
       if (!this.dataRetuned) {
-        console.log(returnedData)
         this.dataRetuned = returnedData;
-        this.pacPrice = parseFloat(returnedData.pacPrice.replace(",",".")) * quantity;
-        this.sedexPrice = parseFloat(returnedData.sedexPrice.replace(",",".")) * quantity;
-        this.pacDeliveryTime = Number(returnedData.pacDeliveryTime);
-        this.sedexDeliveryTime = Number(returnedData.sedexDeliveryTime);
+        this.pacPrice = parseFloat(returnedData.valorpac.replace(",",".")) * quantity;
+        this.sedexPrice = parseFloat(returnedData.valorsedex.replace(",",".")) * quantity;
+        this.pacDeliveryTime = Number(returnedData.prazopac);
+        this.sedexDeliveryTime = Number(returnedData.prazosedex);
       }else {
-        this.sedexPrice += parseFloat(returnedData.sedexPrice.replace(",",".")) * quantity;
-        this.pacPrice += parseFloat(returnedData.pacPrice.replace(",",".")) * quantity;
-        if(this.pacDeliveryTime < Number(returnedData.pacDeliveryTime)){
-          this.pacDeliveryTime = Number(returnedData.pacDeliveryTime);
+        this.sedexPrice += parseFloat(returnedData.valorsedex.replace(",",".")) * quantity;
+        this.pacPrice += parseFloat(returnedData.valorpac.replace(",",".")) * quantity;
+        if(this.pacDeliveryTime < Number(returnedData.prazopac)){
+          this.pacDeliveryTime = Number(returnedData.prazopac);
         }
-        if(this.pacDeliveryTime < Number(returnedData.sedexDeliveryTime)){
-          this.sedexDeliveryTime = Number(returnedData.sedexDeliveryTime);
+        if(this.pacDeliveryTime < Number(returnedData.prazosedex)){
+          this.sedexDeliveryTime = Number(returnedData.prazosedex);
         }
       }
     }, error => {

@@ -13,18 +13,20 @@ export interface Cep {
   siafi: string
 }
 
+
+//classe retornada da API não mudar nomeclatura dos itens
 export interface ShippingReturn{
-  originZipCode: string;
-  destinationZipCode: string;
-  weight: number;
-  height: number;
-  width: number;
-  length: number;
-  accessKey: string;
-  pacDeliveryTime: string;
-  sedexDeliveryTime: string;
-  pacPrice: string;
-  sedexPrice: string;
+  ceporigem: string;
+  cepdestino: string;
+  peso: number;
+  altura: number;
+  largura: number;
+  comprimento: number;
+  suaChave: string;
+  prazopac: string;
+  prazosedex: string;
+  valorpac: string;
+  valorsedex: string;
 }
 
 export class ShippingRequisition{
