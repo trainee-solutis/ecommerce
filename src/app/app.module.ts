@@ -40,6 +40,7 @@ import { RouterModule } from "@angular/router";
 import { BasketComponent } from './pages/basket/basket.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import { BasketProductListComponent } from './components/basket-product-list/basket-product-list.component';
+import { TotalPriceComponent } from "@components/total-price/total-price.component";
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { BasketProductListComponent } from './components/basket-product-list/bas
     CepValidatorDirective,
     FormComponent,
     BasketComponent,
-    BasketProductListComponent
+    BasketProductListComponent,
+    TotalPriceComponent
   ],
   imports: [
     BrowserModule,

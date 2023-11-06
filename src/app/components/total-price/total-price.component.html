@@ -1,0 +1,10 @@
+<div class="total-price-container">
+  <span class="title-price">Total</span>
+  <div class="d-flex">
+    <div class="list-price">
+      <p class="price-pix">R$ {{basket.total[0].value }} no pix</p>
+      <p class="price-card">ou R$ {{ basket.total[2].value }} no cartão</p>
+      <p class="installment">em até {{ basket.total[2].installment }}x de R${{ generateInstallments() }} s/ juros</p>
+    </div>
+  </div>
+</div>
