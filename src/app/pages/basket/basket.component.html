@@ -2,10 +2,11 @@
   <app-search-bar></app-search-bar>
   <div *ngIf="basket.products.length !== 0; else naoTemProdutos">
     <h3>Seu carrinho de compras</h3>
-
     <app-basket-product-list (changeProductQuantity)="updateBasket()"></app-basket-product-list>
-    <app-total-price [basket]="basket"></app-total-price>
-
+    <div class="price">
+      <app-calculate-shipping [basket]="basket"></app-calculate-shipping>
+      <app-total-price [basket]="basket"></app-total-price>
+    </div>
     <div class="button-container">
       <button routerLink="/">Continuar comprando</button>
       <button class="btn-buy" (click)="onCheckout()">Comprar</button>

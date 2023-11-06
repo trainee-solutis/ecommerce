@@ -1,10 +1,10 @@
 <div class="container">
-<form #f="ngForm" (ngSubmit)="processarDados()">
+<form #f="ngForm" (ngSubmit)="refreshData()">
 
   <div class="form">
     <div class="input-header">
       <div class="input">
-        <input  [(ngModel)]="formData.cepdestino" #cep="ngModel" maxlength="8" name="cepdestino"
+        <input  [(ngModel)]="formData.destinationZipCode" #cep="ngModel" maxlength="8" name="cepdestino"
           pattern="[0-9]+" validadorCep>
       </div>
       <button [ngClass]="{'text-secondary': cep.invalid || cep.pending, 'text-primary fw-bold': cep.valid}" [disabled]="cep.invalid || cep.pending">Calcular Frete</button>
@@ -16,7 +16,7 @@
     <div *ngIf="cep?.errors?.['validadorCep']" class="cep-invalid">
       CEP Inválido
     </div>
-    <div class="input-content" *ngIf="freteData && cepData else loading">
+    <div class="input-content" *ngIf="dataRetuned && cepData else loading">
       <div class="adress">
         <p class="material-icons">room</p>
         <p>{{cepData.bairro}}, {{cepData.localidade}} - {{cepData.uf}}</p>
@@ -25,15 +25,15 @@
         <div class="delivery">
           <p>Entrega Padrão</p>
           <div class="price">
-            <p>R$ {{freteData.valorpac}}</p>
-            <p class="time">Até {{freteData.prazopac}} dias úteis</p>
+            <p>R${{pacPrice.toLocaleString('pt-br',{minimumFractionDigits:2})}}</p>
+            <p class="time">Até {{pacDeliveryTime}} dias úteis</p>
           </div>
         </div>
         <div class="sedex-delivery">
           <p>Entrega Sedex&nbsp;&nbsp;</p>
           <div class="price">
-            <p>R$ {{freteData.valorsedex}}</p>
-            <p class="time">Até {{freteData.prazosedex}} dias úteis</p>
+            <p>R${{sedexPrice.toLocaleString('pt-br',{minimumFractionDigits:2})}}</p>
+            <p class="time">Até {{sedexDeliveryTime}} dias úteis</p>
           </div>
         </div>
       </div>
@@ -46,7 +46,7 @@
     </div>
   </ng-template>
 </form>
-<div class="d-flex align-items-center justify-content-center">
+<div class="d-flex align-items-center">
   <a (click)="openDialog(3)">
     <i class="material-icons">help_outline</i>
     Não sei meu CEP </a>

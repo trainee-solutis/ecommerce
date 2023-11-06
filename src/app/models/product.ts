@@ -14,8 +14,10 @@ export interface TechnicalDescription {
   model: string,
   color: string,
   material: string,
-  dimensions: string,
-  weight: string,
+  width:  number;
+  height:  number;
+  length:  number;
+  weight: number,
   warranty: number
 }
 
