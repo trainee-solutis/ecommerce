@@ -23,12 +23,15 @@ export class BasketComponent {
   };
 
   ngOnInit(): void {
+    this.updateBasket();
+  }
+
+  updateBasket(){
     this.service.getBasket().then(basket => {
       this.basket = basket;
       this.loaded = true;
     });
   }
-
   generateInstallments(): number {
     const quantity = this.basket.total[2].installment;
 
