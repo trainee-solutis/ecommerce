@@ -1,0 +1,32 @@
+.total-price-container{
+  display: flex;
+  gap:15px;
+  width: 100%;
+  height: 100%;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.list-price{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  font-size: 1.2rem;
+}
+.price-pix{
+  margin-top: 5px;
+  margin-bottom: 0;
+  font-weight: 700;
+}
+.title-price{
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.price-card{
+  margin: 0;
+}
+.installment{
+  font-size: 0.7rem;
+}
