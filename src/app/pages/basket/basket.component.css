@@ -44,3 +44,27 @@ img {
 .installment{
   font-size: 0.7rem;
 }
+
+.button-container {
+  display: flex;
+  justify-content: end;
+}
+
+button {
+  width: 300px;
+  padding: 10px 40px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 1px 4px 9px 0px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 1px 4px 9px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 1px 4px 9px 0px rgba(0,0,0,0.3);
+}
+
+button:hover {
+  background-color: #e6e6e6;
+}
+
+.btn-buy {
+  margin-left: 20px;
+}
