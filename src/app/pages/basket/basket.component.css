@@ -68,3 +68,10 @@ button:hover {
 .btn-buy {
   margin-left: 20px;
 }
+
+.price{
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 2rem;
+}
