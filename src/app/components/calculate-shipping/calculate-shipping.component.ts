@@ -42,22 +42,13 @@ export class CalculateShippingComponent implements OnChanges{
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.basket){
-      this.products = this.basket?.products
-    }
-    if(this.product){
-      this.products = new Array();
-      const data = {
-        product: this.product,
-        quantity: 1
-      }
-      this.products.push(data);
-    }
+    this.setInitialPrarams();
     if(this.formData.destinationZipCode.length == 8 ){
       this.refreshData();
     }
   }
-
+  
+  
   openDialog(valorRecebido: number) {
     const dialogRef = this.dialog.open(ModalComponent, {
       data: { valorRecebido }
@@ -70,35 +61,49 @@ export class CalculateShippingComponent implements OnChanges{
       if(this.products){
         this.products.forEach(element => {
           this.prepareData(element.product);
-          this.calculatePrice(element.quantity);
+          this.calculatePrice(element.product.name,element.quantity);
         });
       }
       this.dataRetuned = null;
     });
   }
   
-
-  private calculatePrice(quantity: number) {
+  
+  private calculatePrice(productName : string, quantity: number) {
     this.shippingService.getFrete(this.formData.originZipCode, this.formData.destinationZipCode, this.formData.weight, this.formData.height, this.formData.width, this.formData.length, this.formData.accessKey).subscribe(returnedData => {
-      if (!this.dataRetuned) {
-        this.dataRetuned = returnedData;
-        this.pacPrice = parseFloat(returnedData.valorpac.replace(",",".")) * quantity;
-        this.sedexPrice = parseFloat(returnedData.valorsedex.replace(",",".")) * quantity;
-        this.pacDeliveryTime = Number(returnedData.prazopac);
-        this.sedexDeliveryTime = Number(returnedData.prazosedex);
-      }else {
-        this.sedexPrice += parseFloat(returnedData.valorsedex.replace(",",".")) * quantity;
-        this.pacPrice += parseFloat(returnedData.valorpac.replace(",",".")) * quantity;
-        if(this.pacDeliveryTime < Number(returnedData.prazopac)){
-          this.pacDeliveryTime = Number(returnedData.prazopac);
+      if(this.isShippingReturn(returnedData)){
+        if (!this.dataRetuned) {
+          this.assignShippingInfo(returnedData, quantity);  
+        }else {
+          this.addShippingInfo(returnedData, quantity);
         }
-        if(this.pacDeliveryTime < Number(returnedData.prazosedex)){
-          this.sedexDeliveryTime = Number(returnedData.prazosedex);
-        }
+      }else{
+        alert(returnedData.msg + "\n Produto: " + productName);
+        console.error(returnedData)
+        this.isLoading = false
       }
     }, error => {
       console.error("Erro na requisição do frete:", error);
     });
+  }
+
+  
+  private addShippingInfo(returnedData: ShippingReturn, quantity: number) {
+    this.sedexPrice += this.parseStringTofloat(returnedData.valorsedex) * quantity;
+    this.pacPrice += this.parseStringTofloat(returnedData.valorpac) * quantity;
+    if (this.pacDeliveryTime < Number(returnedData.prazopac)) {
+      this.pacDeliveryTime = Number(returnedData.prazopac);
+    }
+    if (this.pacDeliveryTime < Number(returnedData.prazosedex)) {
+      this.sedexDeliveryTime = Number(returnedData.prazosedex);
+    }
+  }
+
+  private assignShippingInfo(returnedData: ShippingReturn, quantity: number) {
+    this.pacPrice = this.parseStringTofloat(returnedData.valorpac) * quantity;
+    this.sedexPrice = this.parseStringTofloat(returnedData.valorsedex) * quantity;
+    this.pacDeliveryTime = Number(returnedData.prazopac);
+    this.sedexDeliveryTime = Number(returnedData.prazosedex);
   }
 
   private prepareData(product: Product){
@@ -107,8 +112,48 @@ export class CalculateShippingComponent implements OnChanges{
     this.formData.length = product.technicalDescription.length;
     this.formData.weight = product.technicalDescription.weight;
   }
+  
+  private setInitialPrarams() {
+    if (this.basket) {
+      this.products = this.basket?.products;
+    }
+    if (this.product) {
+      this.products = new Array();
+      const data = {
+        product: this.product,
+        quantity: 1
+      };
+      this.products.push(data);
+    }
+  }
 
+  private isShippingReturn(data: any): data is ShippingReturn {
+    const keys: string[] = Object.keys(data);
+    const requiredKeys: (keyof ShippingReturn)[] = [
+        'ceporigem',
+        'cepdestino',
+        'peso',
+        'altura',
+        'largura',
+        'comprimento',
+        'suaChave',
+        'prazopac',
+        'prazosedex',
+        'valorpac',
+        'valorsedex'
+    ];
+    return requiredKeys.every(key => keys.includes(key));
+  }
 
+  private parseStringTofloat(stringValue : string) {
+    console.log(stringValue)
+    if(stringValue.includes(",")){
+      return parseFloat(stringValue.replace(",", "."));
+    }else{
+      return parseFloat(stringValue);
+    }
+  }
+  
 }
 
 
