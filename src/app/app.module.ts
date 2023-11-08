@@ -5,7 +5,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatCardModule} from "@angular/material/card";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatInputModule } from "@angular/material/input";
-import { NgModule } from "@angular/core";
+import { LOCALE_ID, NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgbModule, NgbRatingModule } from "@ng-bootstrap/ng-bootstrap";
 import { CarouselComponent } from "@components/carousel/carousel.component";
@@ -42,6 +42,12 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { BasketProductListComponent } from './components/basket-product-list/basket-product-list.component';
 import { TotalPriceComponent } from "@components/total-price/total-price.component";
 import { SuccessComponent } from './pages/success/success.component';
+import {  SignUpComponent } from './pages/signup/signup.component';
+import { MatNativeDateModule } from "@angular/material/core";
+import {MatDividerModule} from '@angular/material/divider';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+
 
 @NgModule({
   declarations: [
@@ -64,7 +70,8 @@ import { SuccessComponent } from './pages/success/success.component';
     BasketComponent,
     BasketProductListComponent,
     TotalPriceComponent,
-    SuccessComponent
+    SignUpComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -92,13 +99,17 @@ import { SuccessComponent } from './pages/success/success.component';
     ReactiveFormsModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatDividerModule
   ],
   providers: [
     BreadcrumbService,
     MatFormFieldModule,
     BrowserAnimationsModule,
     FormsModule,
+    { provide: LOCALE_ID, useValue: 'pt'}
   ],
   bootstrap: [AppComponent]
 })
