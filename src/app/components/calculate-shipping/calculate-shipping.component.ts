@@ -68,12 +68,11 @@ export class CalculateShippingComponent implements OnChanges{
     });
   }
   
-  
   private calculatePrice(productName : string, quantity: number) {
     this.shippingService.getFrete(this.formData.originZipCode, this.formData.destinationZipCode, this.formData.weight, this.formData.height, this.formData.width, this.formData.length, this.formData.accessKey).subscribe(returnedData => {
       if(this.isShippingReturn(returnedData)){
         if (!this.dataRetuned) {
-          this.assignShippingInfo(returnedData, quantity);  
+          this.assignShippingInfo(returnedData, quantity);
         }else {
           this.addShippingInfo(returnedData, quantity);
         }
@@ -87,6 +86,13 @@ export class CalculateShippingComponent implements OnChanges{
     });
   }
 
+  private assignShippingInfo(returnedData: ShippingReturn, quantity: number) {
+    this.dataRetuned = returnedData;
+    this.pacPrice = this.parseStringTofloat(returnedData.valorpac) * quantity;
+    this.sedexPrice = this.parseStringTofloat(returnedData.valorsedex) * quantity;
+    this.pacDeliveryTime = Number(returnedData.prazopac);
+    this.sedexDeliveryTime = Number(returnedData.prazosedex);
+  }
   
   private addShippingInfo(returnedData: ShippingReturn, quantity: number) {
     this.sedexPrice += this.parseStringTofloat(returnedData.valorsedex) * quantity;
@@ -97,13 +103,6 @@ export class CalculateShippingComponent implements OnChanges{
     if (this.pacDeliveryTime < Number(returnedData.prazosedex)) {
       this.sedexDeliveryTime = Number(returnedData.prazosedex);
     }
-  }
-
-  private assignShippingInfo(returnedData: ShippingReturn, quantity: number) {
-    this.pacPrice = this.parseStringTofloat(returnedData.valorpac) * quantity;
-    this.sedexPrice = this.parseStringTofloat(returnedData.valorsedex) * quantity;
-    this.pacDeliveryTime = Number(returnedData.prazopac);
-    this.sedexDeliveryTime = Number(returnedData.prazosedex);
   }
 
   private prepareData(product: Product){
@@ -132,11 +131,6 @@ export class CalculateShippingComponent implements OnChanges{
     const requiredKeys: (keyof ShippingReturn)[] = [
         'ceporigem',
         'cepdestino',
-        'peso',
-        'altura',
-        'largura',
-        'comprimento',
-        'suaChave',
         'prazopac',
         'prazosedex',
         'valorpac',
@@ -146,7 +140,6 @@ export class CalculateShippingComponent implements OnChanges{
   }
 
   private parseStringTofloat(stringValue : string) {
-    console.log(stringValue)
     if(stringValue.includes(",")){
       return parseFloat(stringValue.replace(",", "."));
     }else{
@@ -155,5 +148,3 @@ export class CalculateShippingComponent implements OnChanges{
   }
   
 }
-
-
