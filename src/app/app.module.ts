@@ -41,6 +41,7 @@ import { BasketComponent } from './pages/basket/basket.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import { BasketProductListComponent } from './components/basket-product-list/basket-product-list.component';
 import { TotalPriceComponent } from "@components/total-price/total-price.component";
+import { SuccessComponent } from './pages/success/success.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { TotalPriceComponent } from "@components/total-price/total-price.compone
     FormComponent,
     BasketComponent,
     BasketProductListComponent,
-    TotalPriceComponent
+    TotalPriceComponent,
+    SuccessComponent
   ],
   imports: [
     BrowserModule,
