@@ -33,18 +33,6 @@
             </ng-container>
           </ng-container>
         </ng-template>
-            <ng-container *ngSwitchDefault>
-              <p *ngIf="item.interest; else noInterest" class="product__price">
-                ou R${{item.value}} em {{item.installment}}x com juros no {{item.type}}
-              </p> <!-- valor no cartão com juros -->
-              <ng-template #noInterest>
-                <p class="product__price">
-                  ou R${{item.value}} em {{item.installment}}x sem juros no {{item.type}}
-                </p> <!-- valor no cartão sem juros -->
-              </ng-template>
-            </ng-container>
-          </ng-container>
-        </ng-template>
 
       <div class="button-container">
         <app-button #add [texto]="btnAddToCart" [action]="addToCart.bind(this)" (click)="add.added()"></app-button>
