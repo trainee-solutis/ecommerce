@@ -12,7 +12,7 @@ export class ShippingService {
 
   constructor(private http: HttpClient) { }
 
-  getFrete(originZipCode: string, destinationZipCode: string, weight: number, height: number, width: number, length: number, accessKey: string): Observable<ShippingReturn> {
+  getFrete(originZipCode: string, destinationZipCode: string, weight: number, height: number, width: number, length: number, accessKey: string): Observable<ShippingReturn | {msg:string}> {
     const url = `${this.apiUrlFrete}${originZipCode}/${destinationZipCode}/${weight}/${height}/${width}/${length}/${accessKey}`;
     return this.http.get<ShippingReturn>(url);
   }
