@@ -6,6 +6,7 @@ import { HomeComponent } from "./pages/home/home.component";
 import { ProductComponent } from "./pages/product/product.component";
 import { BasketComponent } from "./pages/basket/basket.component";
 import { SuccessComponent } from "./pages/success/success.component";
+import { ProfileComponent } from "./pages/profile/profile.component";
 
 const routes: Routes = [
   {
@@ -23,6 +24,11 @@ const routes: Routes = [
     path: "basket",
     component: BasketComponent,
     data: { breadcrumb: { alias: "basket" } },
+  },
+  {
+    path: "profile",
+    component: ProfileComponent,
+    data: { breadcrumb: { alias: "profile" } },
   },
   {
     path: "confirm",
