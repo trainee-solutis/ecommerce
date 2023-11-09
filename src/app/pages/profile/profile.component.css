@@ -1,0 +1,30 @@
+.profile-container{
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title{
+  width:80%;
+  font-weight: 600;
+  margin: 10px;
+  font-size: 25px;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.drawer-container {
+  width: 80%;
+  height: 100%;
+  margin: 10px;
+}
+
+::ng-deep .ng-star-inserted{
+  width: 20%;
+}
+
+.optionsList{
+ align-items: start;
+}
