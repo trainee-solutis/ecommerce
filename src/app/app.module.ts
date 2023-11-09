@@ -1,6 +1,6 @@
 import { MatFormFieldModule } from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
-import {MatButtonModule} from "@angular/material/button";
+import {MatButton, MatButtonModule} from "@angular/material/button";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatCardModule} from "@angular/material/card";
 import { MatDialogModule } from "@angular/material/dialog";
@@ -26,6 +26,8 @@ import { FormComponent } from "@components/form/form.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from "@angular/material/sidenav";
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
@@ -42,6 +44,8 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { BasketProductListComponent } from './components/basket-product-list/basket-product-list.component';
 import { TotalPriceComponent } from "@components/total-price/total-price.component";
 import { SuccessComponent } from './pages/success/success.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+
 
 @NgModule({
   declarations: [
@@ -64,7 +68,8 @@ import { SuccessComponent } from './pages/success/success.component';
     BasketComponent,
     BasketProductListComponent,
     TotalPriceComponent,
-    SuccessComponent
+    SuccessComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +97,10 @@ import { SuccessComponent } from './pages/success/success.component';
     ReactiveFormsModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatSidenavModule,
+    MatListModule,
+    MatButtonModule
   ],
   providers: [
     BreadcrumbService,
