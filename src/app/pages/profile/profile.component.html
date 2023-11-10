@@ -1,6 +1,7 @@
 <div class="profile-container">
   <div class="title">
     Meus Dados
+
   </div>
   <mat-drawer-container class="drawer-container">
     <mat-drawer class="drawer" mode="side" opened >
@@ -32,11 +33,12 @@
     <mat-drawer-content>
       <div [ngSwitch]="dataComponents">
         <div *ngSwitchDefault>
-          signupdata
+          signupData
+
           <!-- Colocar o component Dados Cadastrais aqui -->
         </div>
         <div *ngSwitchCase="'acessData'">
-          acessData
+          <app-access-data-page></app-access-data-page>
           <!-- Colocar o component Dados de Acesso aqui -->
         </div>
         <div *ngSwitchCase="'lastBuy'">
