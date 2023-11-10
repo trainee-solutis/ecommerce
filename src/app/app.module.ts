@@ -49,6 +49,7 @@ import { MatNativeDateModule } from "@angular/material/core";
 import {MatDividerModule} from '@angular/material/divider';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     TotalPriceComponent,
     SignUpComponent,
     SuccessComponent,
-    ProfileComponent
+    ProfileComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -105,7 +107,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     MatBadgeModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatDividerModule
+    MatDividerModule,
     MatSidenavModule,
     MatListModule,
     MatButtonModule
