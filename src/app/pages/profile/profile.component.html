@@ -1,0 +1,53 @@
+<div class="profile-container">
+  <div class="title">
+    Meus Dados
+  </div>
+  <mat-drawer-container class="drawer-container">
+    <mat-drawer class="drawer" mode="side" opened >
+        <mat-list class="optionsList" role="list">
+          <mat-list-item role="listitem">
+            <button mat-button (click)="changeComponent('singupData')">
+              Dados Cadastrais
+            </button>
+          </mat-list-item>
+          <mat-list-item role="listitem">
+            <button mat-button (click)="changeComponent('acessData')">
+              Dados de Acesso
+            </button>
+          </mat-list-item>
+          <mat-list-item role="listitem">
+            <button mat-button (click)="changeComponent('lastBuy')">
+              Últimas compras
+            </button>
+          </mat-list-item>
+          <mat-list-item role="listitem">
+            <button mat-button (click)="changeComponent('buyHistory')">
+              Histórico de Compras
+            </button>
+          </mat-list-item>
+        </mat-list>
+    </mat-drawer>
+
+
+    <mat-drawer-content>
+      <div [ngSwitch]="dataComponents">
+        <div *ngSwitchDefault>
+          signupdata
+          <!-- Colocar o component Dados Cadastrais aqui -->
+        </div>
+        <div *ngSwitchCase="'acessData'">
+          acessData
+          <!-- Colocar o component Dados de Acesso aqui -->
+        </div>
+        <div *ngSwitchCase="'lastBuy'">
+          lastBuy
+          <!-- Colocar o component Últimas Compras aqui -->
+        </div>
+        <div *ngSwitchCase="'buyHistory'">
+          buyHistory
+          <!-- Colocar o component Histórico de Compras aqui -->
+        </div>
+    </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

@@ -1,6 +1,6 @@
 import { MatFormFieldModule } from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
-import {MatButtonModule} from "@angular/material/button";
+import {MatButton, MatButtonModule} from "@angular/material/button";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatCardModule} from "@angular/material/card";
 import { MatDialogModule } from "@angular/material/dialog";
@@ -26,6 +26,8 @@ import { FormComponent } from "@components/form/form.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from "@angular/material/sidenav";
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
@@ -46,7 +48,7 @@ import {  SignUpComponent } from './pages/signup/signup.component';
 import { MatNativeDateModule } from "@angular/material/core";
 import {MatDividerModule} from '@angular/material/divider';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 @NgModule({
@@ -71,7 +73,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     BasketProductListComponent,
     TotalPriceComponent,
     SignUpComponent,
-
+    SuccessComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -103,6 +106,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatDatepickerModule,
     MatNativeDateModule,
     MatDividerModule
+    MatSidenavModule,
+    MatListModule,
+    MatButtonModule
   ],
   providers: [
     BreadcrumbService,
