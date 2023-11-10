@@ -45,6 +45,7 @@ import { BasketProductListComponent } from './components/basket-product-list/bas
 import { TotalPriceComponent } from "@components/total-price/total-price.component";
 import { SuccessComponent } from './pages/success/success.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { AccessDataPageComponent } from './components/access-data-page/access-data-page.component';
 
 
 @NgModule({
@@ -69,7 +70,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     BasketProductListComponent,
     TotalPriceComponent,
     SuccessComponent,
-    ProfileComponent
+    ProfileComponent,
+    AccessDataPageComponent
   ],
   imports: [
     BrowserModule,
