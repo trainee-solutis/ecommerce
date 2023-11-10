@@ -6,6 +6,7 @@ import { HomeComponent } from "./pages/home/home.component";
 import { ProductComponent } from "./pages/product/product.component";
 import { BasketComponent } from "./pages/basket/basket.component";
 import { SuccessComponent } from "./pages/success/success.component";
+import { SignUpComponent } from "./pages/signup/signup.component";
 import { ProfileComponent } from "./pages/profile/profile.component";
 
 const routes: Routes = [
@@ -34,6 +35,11 @@ const routes: Routes = [
     path: "confirm",
     component: SuccessComponent,
     data: { breadcrumb: { alias: "confirm" } },
+  },
+  {
+    path: "signup",
+    component: SignUpComponent,
+    data: { breadcrumb: { alias: "signup" } },
   },
   {path: "**", redirectTo: ""}
 ];
