@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:30%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.conteudo {
+  margin: 10px 0px;
+}
+
+mat-card-header{
+  justify-content: center;
+}
+
+mat-card-content{
+  padding: 10px 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+mat-card-actions{
+  justify-content: center;
+}
+
+button {
+  justify-content: center;
+}
+
+p{
+  margin: 1px;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+  hyphens: auto;
+}
+
+h1{
+  font-size: 2rem;
+}
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

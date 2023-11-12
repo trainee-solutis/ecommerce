@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="header">
+    <img src="../../../assets/goku.png" alt="" width="20%">
+    <h1>Ecommerce</h1>
+  </div>
+  <div class="conteudo">
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Entrar</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-divider></mat-divider>
+          <br>
+
+
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="exemplo@exemplo.com" formControlName="email">
+            <mat-error *ngIf="formulario.get('email')?.errors?.['required']"> Login ou senha inválido</mat-error>
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="senha">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="formulario.get('email')?.errors?.['required']"> Login ou senha inválido</mat-error>
+          </mat-form-field>
+
+
+          <mat-card-actions>
+            <button mat-raised-button color="primary" [disabled]="!formulario.valid" routerLink="/home">Entrar</button>
+          </mat-card-actions>
+
+          <br>
+
+          <mat-divider></mat-divider>
+          <br>
+          <p>Você não possui uma conta? <a routerLink="/signup"><strong> Criar conta</strong> </a></p>
+        </mat-card-content>
+      </mat-card>
+    </form>
+  </div>
+</div>
