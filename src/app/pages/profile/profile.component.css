@@ -20,10 +20,11 @@
   height: 100%;
   margin: 10px;
 }
-
-::ng-deep .ng-star-inserted{
-  width: 20%;
-}
+/*
+Essa estilização está quebrando o layout da tabela  */
+/* ::ng-deep .ng-star-inserted{
+  width: 100%;
+} */
 
 .optionsList{
  align-items: start;

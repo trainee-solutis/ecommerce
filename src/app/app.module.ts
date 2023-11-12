@@ -28,6 +28,10 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
@@ -45,6 +49,8 @@ import { BasketProductListComponent } from './components/basket-product-list/bas
 import { TotalPriceComponent } from "@components/total-price/total-price.component";
 import { SuccessComponent } from './pages/success/success.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { BuyHistoryComponent } from './components/buy-history/buy-history.component';
+import { TablePaginationComponent } from './components/table-pagination/table-pagination.component';
 
 
 @NgModule({
@@ -69,7 +75,9 @@ import { ProfileComponent } from './pages/profile/profile.component';
     BasketProductListComponent,
     TotalPriceComponent,
     SuccessComponent,
-    ProfileComponent
+    ProfileComponent,
+    BuyHistoryComponent,
+    TablePaginationComponent
   ],
   imports: [
     BrowserModule,
@@ -100,7 +108,10 @@ import { ProfileComponent } from './pages/profile/profile.component';
     MatBadgeModule,
     MatSidenavModule,
     MatListModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [
     BreadcrumbService,

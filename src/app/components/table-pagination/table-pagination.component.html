@@ -1,0 +1,17 @@
+
+<table>
+
+  <ng-container *ngFor="let compra of compras; let i = index">
+    <tr>
+      <td *ngIf="i === 0" style="text-align: center;" [attr.rowspan]="compras.length"> {{idCompra}} </td>
+      <td> {{ compra.name }} </td>
+      <td> {{ compra.price }} </td>
+      <td> {{ formatarDataBrasileira(compra.shipping) }}</td>
+      <td *ngIf="i === 0" style="text-align: center;" [attr.rowspan]="compras.length"> R$ 1431,90 </td>
+    </tr>
+  </ng-container>
+
+</table>
+
+
+
