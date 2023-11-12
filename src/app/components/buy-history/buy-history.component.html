@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th> # da compra </th>
+    <th> Produtos </th>
+    <th> Preço </th>
+    <th> Emtrega </th>
+    <th> Total da compra </th>
+  </tr>
+</table>
+
+
+<div *ngFor="let compra of COMPRAS">
+  <app-table-pagination
+    [compras]="compra.arrayCompras"
+    [idCompra]="compra.idShop"
+  ></app-table-pagination>
+</div>
+

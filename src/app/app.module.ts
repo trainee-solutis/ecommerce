@@ -28,6 +28,10 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
@@ -50,6 +54,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/login/login.component';
+import { BuyHistoryComponent } from './components/buy-history/buy-history.component';
+import { TablePaginationComponent } from './components/table-pagination/table-pagination.component';
 
 
 @NgModule({
@@ -76,7 +82,9 @@ import { LoginComponent } from './pages/login/login.component';
     SignUpComponent,
     SuccessComponent,
     ProfileComponent,
-    LoginComponent
+    LoginComponent,
+    BuyHistoryComponent,
+    TablePaginationComponent
   ],
   imports: [
     BrowserModule,
@@ -110,7 +118,10 @@ import { LoginComponent } from './pages/login/login.component';
     MatDividerModule,
     MatSidenavModule,
     MatListModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [
     BreadcrumbService,
