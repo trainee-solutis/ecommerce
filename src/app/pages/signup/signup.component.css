@@ -34,8 +34,9 @@ p{
   hyphens: auto;
 }
 
-h1{
+h1:hover{
   font-size: 2rem;
+  cursor: pointer;
 }
 
 .header{
