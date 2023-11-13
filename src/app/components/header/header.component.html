@@ -10,15 +10,15 @@
       </div>
       <div class="link-container">
         <button class="profile-icon" type="button" mat-icon-button [matMenuTriggerFor]="menu"><i class="bi bi-person-circle" matBadgeSize="small"></i> </button>
-        <mat-menu #menu="matMenu" >
+        <mat-menu #menu="matMenu" class="dropdown">
           <ng-container  *ngIf="isLogged; else containerNotLogged">
-            <button mat-menu-item type="button"> <mat-icon>edit</mat-icon> Meu Perfil</button>
-            <button mat-menu-item type="button"> <mat-icon>logout</mat-icon> Logout</button>
+            <button mat-menu-item class="button-dropdown" type="button" routerLink="/profile"> <mat-icon>edit</mat-icon> Meu Perfil</button>
+            <button mat-menu-item class="button-dropdown" type="button" routerLink="/home"> <mat-icon>logout</mat-icon> Logout</button>
           </ng-container>
 
           <ng-template #containerNotLogged>
-            <button mat-menu-item>Login</button>
-            <button mat-menu-item >Registrar</button>
+            <button mat-menu-item class="button-dropdown" type="button" routerLink="/login">Login</button>
+            <button mat-menu-item class="button-dropdown" type="button" routerLink="/signup">Registrar</button>
           </ng-template>
         </mat-menu>
         <a class="basket" routerLink="/basket">

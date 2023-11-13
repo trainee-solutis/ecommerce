@@ -11,7 +11,7 @@ import { MatMenu } from "@angular/material/menu";
 })
 export class HeaderComponent implements OnInit {
   quantity: number;
-  isLogged: boolean = true;
+  isLogged: boolean = false;
 
   constructor(public dialog: MatDialog, public basketService: BasketService) {
     this.quantity = 0;
