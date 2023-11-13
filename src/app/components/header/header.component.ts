@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { ModalComponent } from "@components/modal/modal.component";
 import { BasketService } from "app/services/basket/basket.service";
+import { MatMenu } from "@angular/material/menu";
 
 @Component({
   selector: "app-header",
@@ -10,6 +11,7 @@ import { BasketService } from "app/services/basket/basket.service";
 })
 export class HeaderComponent implements OnInit {
   quantity: number;
+  isLogged: boolean = false;
 
   constructor(public dialog: MatDialog, public basketService: BasketService) {
     this.quantity = 0;

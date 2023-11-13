@@ -20,10 +20,10 @@
   height: 100%;
   margin: 10px;
 }
-
-::ng-deep .ng-star-inserted{
+/* Ele está quebrando o código dos outros componentes */
+/* ::ng-deep .ng-star-inserted{
   width: 20%;
-}
+} */
 
 .optionsList{
  align-items: start;
