@@ -13,7 +13,6 @@
       <mat-error *ngIf="passwordForm.get('oldPassword')?.errors?.['required']">
         Você deve digitar sua senha antiga.
       </mat-error>
-
     </mat-form-field>
     <mat-form-field>
       <mat-label>
@@ -30,7 +29,6 @@
       <mat-error *ngIf="passwordForm.get('newPassword')?.errors?.['required']">
         Você deve digitar sua nova senha.
       </mat-error>
-
     </mat-form-field>
     <mat-form-field>
       <mat-label>
@@ -50,7 +48,6 @@
       <mat-error *ngIf="passwordForm.get('newPassword')?.errors?.['minlength']">
         Sua nova senha deve conter pelo menos 8 caracteres.
       </mat-error>
-
     </mat-form-field>
     <button class="btn" mat-raised-button color="primary" [disabled]="passwordForm.invalid" >
       Trocar Senha

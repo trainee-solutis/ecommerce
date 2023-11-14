@@ -1,6 +1,7 @@
 import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-access-data-page',
@@ -11,12 +12,13 @@ export class AccessDataPageComponent implements OnInit {
 
   passwordForm!: FormGroup;
   submitted = false;
+  successMessage = "";
 
   hideOldPassword = true;
   hideNewPassword = true;
   hideConfirmPassword = true;
 
-  constructor(private formBuilder: FormBuilder){
+  constructor(private formBuilder: FormBuilder, private router: Router){
   }
 
   ngOnInit(): void {
@@ -37,18 +39,19 @@ export class AccessDataPageComponent implements OnInit {
   passwordMatching(formGroup: FormGroup){
     const newPassword = formGroup.get('newPassword')?.value;
     const confirmPassword = formGroup.get('confirmPassword')?.value;
-
     if (newPassword !== confirmPassword) {
       formGroup.get('confirmPassword')?.setErrors({ notMatching: true });
     } else {
       formGroup.get('confirmPassword')?.setErrors(null);
     }
-  }
-
-  changePassword(){
-    this.submitted = true;
-    console.log('change password', this.passwordForm.value)
   };
 
+  changePassword(){
+    if(this.submitted = true){
+      alert("Senha alterada com sucesso!");
+      window.location.reload();
+    }
+    // lógica de alterar a senha aqui
+  };
 }
 
