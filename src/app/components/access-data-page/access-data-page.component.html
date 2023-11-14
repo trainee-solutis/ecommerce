@@ -10,6 +10,9 @@
         [attr.aria-pressed]="hideOldPassword">
         <mat-icon>{{hideOldPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
+      <mat-error *ngIf="passwordForm.get('oldPassword')?.errors?.['required']">
+        Você deve digitar sua senha antiga.
+      </mat-error>
 
     </mat-form-field>
     <mat-form-field>
@@ -21,11 +24,11 @@
         [attr.aria-pressed]="hideNewPassword">
         <mat-icon>{{hideNewPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
+      <mat-error *ngIf="passwordForm.get('newPassword')?.errors?.['minlength'] ">
+        Sua nova senha deve conter pelo menos 8 caracteres.
+     </mat-error>
       <mat-error *ngIf="passwordForm.get('newPassword')?.errors?.['required']">
         Você deve digitar sua nova senha.
-      </mat-error>
-      <mat-error *ngIf="passwordForm.errors?.['passwordMatchError']">
-        As senhas devem ser iguais!
       </mat-error>
 
     </mat-form-field>
@@ -41,10 +44,10 @@
       <mat-error *ngIf="passwordForm.get('confirmPassword')?.errors?.['required']">
       Você deve digitar sua nova senha novamente.
       </mat-error>
-      <mat-error *ngIf="passwordForm.errors?.['passwordMatchError']">
+      <mat-error *ngIf="passwordForm.get('confirmPassword')?.errors?.['notMatching']">
         As senhas devem ser iguais!
       </mat-error>
-      <mat-error *ngIf="passwordForm.get('newPassword')?.hasError('minlength') ">
+      <mat-error *ngIf="passwordForm.get('newPassword')?.errors?.['minlength']">
         Sua nova senha deve conter pelo menos 8 caracteres.
       </mat-error>
 

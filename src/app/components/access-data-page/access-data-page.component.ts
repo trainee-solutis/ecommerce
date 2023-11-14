@@ -1,7 +1,6 @@
 import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
-import { matchPassword } from './matchpassword.validator';
 
 @Component({
   selector: 'app-access-data-page',
@@ -24,13 +23,27 @@ export class AccessDataPageComponent implements OnInit {
 
     this.passwordForm = this.formBuilder.group({
       oldPassword: ['', Validators.required],
-      newPassword: ['', [Validators.required, Validators.minLength(8)]],
-      confirmPassword: ['', [Validators.required, Validators.minLength(8)]],
+      newPassword: ['', Validators.compose([
+        Validators.required,
+        Validators.minLength(8)])],
+      confirmPassword: ['', [Validators.required]],
+    },
+    {
+      validators: this.passwordMatching
     });
 
-    this.passwordForm.setValidators(matchPassword);
   }
 
+  passwordMatching(formGroup: FormGroup){
+    const newPassword = formGroup.get('newPassword')?.value;
+    const confirmPassword = formGroup.get('confirmPassword')?.value;
+
+    if (newPassword !== confirmPassword) {
+      formGroup.get('confirmPassword')?.setErrors({ notMatching: true });
+    } else {
+      formGroup.get('confirmPassword')?.setErrors(null);
+    }
+  }
 
   changePassword(){
     this.submitted = true;
