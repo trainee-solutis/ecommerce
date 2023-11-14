@@ -15,7 +15,7 @@ input.example-right-align {
   -moz-appearance: textfield;
 }
 
-.example-container{
+.password-container{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,12 +23,12 @@ input.example-right-align {
   width: 100%;
 }
 
-.example-container > * {
+.password-container > * {
   width: 60%;
   margin: 10px;
 }
 
-.example-container > .btn {
+.password-container > .btn {
   width: auto;
   padding: 25px 30px;
   margin-left: 48%;
