@@ -5,7 +5,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatCardModule} from "@angular/material/card";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatInputModule } from "@angular/material/input";
-import { NgModule } from "@angular/core";
+import { LOCALE_ID, NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgbModule, NgbRatingModule } from "@ng-bootstrap/ng-bootstrap";
 import { CarouselComponent } from "@components/carousel/carousel.component";
@@ -28,6 +28,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from "@angular/material/sidenav";
+import {MatMenuModule} from '@angular/material/menu';
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
@@ -44,7 +45,12 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { BasketProductListComponent } from './components/basket-product-list/basket-product-list.component';
 import { TotalPriceComponent } from "@components/total-price/total-price.component";
 import { SuccessComponent } from './pages/success/success.component';
+import {  SignUpComponent } from './pages/signup/signup.component';
+import { MatNativeDateModule } from "@angular/material/core";
+import {MatDividerModule} from '@angular/material/divider';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { LoginComponent } from './pages/login/login.component';
 import { AccessDataPageComponent } from './components/access-data-page/access-data-page.component';
 
 
@@ -69,8 +75,10 @@ import { AccessDataPageComponent } from './components/access-data-page/access-da
     BasketComponent,
     BasketProductListComponent,
     TotalPriceComponent,
+    SignUpComponent,
     SuccessComponent,
     ProfileComponent,
+    LoginComponent,
     AccessDataPageComponent
   ],
   imports: [
@@ -100,15 +108,20 @@ import { AccessDataPageComponent } from './components/access-data-page/access-da
     MatInputModule,
     ReactiveFormsModule,
     MatBadgeModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatDividerModule,
     MatSidenavModule,
     MatListModule,
-    MatButtonModule
+    MatButtonModule,
+    MatMenuModule,
   ],
   providers: [
     BreadcrumbService,
     MatFormFieldModule,
     BrowserAnimationsModule,
     FormsModule,
+    { provide: LOCALE_ID, useValue: 'pt'}
   ],
   bootstrap: [AppComponent]
 })

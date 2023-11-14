@@ -9,7 +9,18 @@
         <button mat-raised-button (click)="openDialog(2)">Fale conosco</button>
       </div>
       <div class="link-container">
-        <a href=""><i class="bi bi-person-circle"></i></a>
+        <button class="profile-icon" type="button" mat-icon-button [matMenuTriggerFor]="menu"><i class="bi bi-person-circle" matBadgeSize="small"></i> </button>
+        <mat-menu #menu="matMenu" class="dropdown">
+          <ng-container  *ngIf="isLogged; else containerNotLogged">
+            <button mat-menu-item class="button-dropdown" type="button" routerLink="/profile"> <mat-icon>edit</mat-icon> Meu Perfil</button>
+            <button mat-menu-item class="button-dropdown" type="button" routerLink="/home"> <mat-icon>logout</mat-icon> Logout</button>
+          </ng-container>
+
+          <ng-template #containerNotLogged>
+            <button mat-menu-item class="button-dropdown" type="button" routerLink="/login">Login</button>
+            <button mat-menu-item class="button-dropdown" type="button" routerLink="/signup">Registrar</button>
+          </ng-template>
+        </mat-menu>
         <a class="basket" routerLink="/basket">
           <i class="bi bi-basket" mat-raised-button [matBadge]="quantity" matBadgeColor="accent" matBadgeSize="small"></i>
         </a>

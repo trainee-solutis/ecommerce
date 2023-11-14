@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="header">
+    <img src="../../../assets/goku.png" alt="" width="20%">
+    <h1 routerLink="/home">Ecommerce</h1>
+  </div>
+  <div class="conteudo">
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Criar Conta</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-divider></mat-divider>
+          <br>
+          <mat-form-field appearance="outline">
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="nome">
+            <mat-icon matSuffix> {{formulario.get('nome')?.invalid && formulario.get('nome')?.touched ?
+              'sentiment_very_dissatisfied' :
+              'sentiment_very_satisfied'}}</mat-icon>
+            <mat-error *ngIf="formulario.get('nome')?.errors?.['required']"> Nome obrigatório</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Sobrenome</mat-label>
+            <input matInput formControlName="sobrenome">
+            <mat-icon matSuffix> {{formulario.get('sobrenome')?.invalid && formulario.get('sobrenome')?.touched ?
+              'sentiment_very_dissatisfied' :
+              'sentiment_very_satisfied'}}</mat-icon>
+            <mat-error *ngIf="formulario.get('sobrenome')?.errors?.['required']"> Nome obrigatório</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Data de Nascimento</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="nascimento">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error> Data de nascimento obrigatória</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="exemplo@exemplo.com" formControlName="email">
+            <mat-error *ngIf="formulario.get('email')?.errors?.['required']"> Email obrigatório</mat-error>
+            <mat-error *ngIf="formulario.get('email')?.errors?.['email']"> Insira um email válido </mat-error>
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="senha">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="formulario.get('senha')?.errors?.['required']"> Senha obrigatória</mat-error>
+            <mat-error *ngIf="formulario.get('senha')?.errors?.['minlength']"> Senha deve ter, no mínimo, 6 dígitos
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Confirmar Senha</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirmSenha">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="formulario.get('confirmSenha')?.errors?.['required']"> Senha obrigatória</mat-error>
+            <mat-error *ngIf="formulario.get('confirmSenha')?.errors?.['notMatching']">As senhas não
+              coincidem</mat-error>
+          </mat-form-field>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" [disabled]="!formulario.valid">Continuar</button>
+          </mat-card-actions>
+          <p>Ao criar uma conta, você concorda com as Condições de Uso do Ecommerce. Por favor verifique a Notificação
+            de
+            Privacidade, Notificação de Cookies e a Notificação de Anúncios Baseados em Interesse.</p>
+          <br>
+
+          <mat-divider></mat-divider>
+          <br>
+          <p>Você já tem uma conta? <a routerLink="/login"> <strong> Fazer Login</strong> </a></p>
+        </mat-card-content>
+      </mat-card>
+    </form>
+  </div>
+</div>
