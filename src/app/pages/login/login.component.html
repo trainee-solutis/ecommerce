@@ -33,11 +33,10 @@
 
 
           <mat-card-actions>
-            <button mat-raised-button color="primary" [disabled]="!formulario.valid" routerLink="/home">Entrar</button>
+            <button mat-raised-button color="primary" [disabled]="!formulario.valid"(click)="authenticator()">Entrar</button>
           </mat-card-actions>
 
           <br>
-
           <mat-divider></mat-divider>
           <br>
           <p>Você não possui uma conta? <a routerLink="/signup"><strong> Criar conta</strong> </a></p>
