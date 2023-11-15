@@ -13,7 +13,7 @@
         <mat-menu #menu="matMenu" class="dropdown">
           <ng-container  *ngIf="isLogged; else containerNotLogged">
             <button mat-menu-item class="button-dropdown" type="button" routerLink="/profile"> <mat-icon>edit</mat-icon> Meu Perfil</button>
-            <button mat-menu-item class="button-dropdown" type="button" routerLink="/home"> <mat-icon>logout</mat-icon> Logout</button>
+            <button mat-menu-item class="button-dropdown" type="button" routerLink="/" (click)="authService.logout()"> <mat-icon>logout</mat-icon> Logout</button>
           </ng-container>
 
           <ng-template #containerNotLogged>
