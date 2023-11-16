@@ -8,7 +8,7 @@ import { jwtDecrypt, jwtVerify} from 'jose';
   providedIn: 'root'
 })
 export class AuthenticatorService {
-  private apiUrl = 'https://expressjs-prisma-production-0659.up.railway.app/';
+  private apiUrl = environment.api_railway_Url;
   private apiToken = "c29sdXRpcw==";
   constructor(private http: HttpClient, private router: Router) { }
 
