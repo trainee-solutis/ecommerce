@@ -55,4 +55,14 @@
         height="500px" width="400px"></iframe>
     </mat-dialog-content>
   </div>
+  <div *ngSwitchCase="4">
+    <div class="header">
+      <h1 mat-dialog-title >FALTA POUCO!</h1>
+      <span mat-dialog-close class="material-icons">close</span>
+    </div>
+    <mat-dialog-content class="mat-typography">
+      <app-send-email-confirmation></app-send-email-confirmation>
+    </mat-dialog-content>
+    <br>
+  </div>
 </div>
