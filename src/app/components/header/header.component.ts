@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     this.quantity = 0;
   }
   ngAfterViewInit(): void {
-    this.authService.isLogged().then((data) => {
+    this.authService.getLoggedUser().then((data) => {
       if(data){
         this.isLogged = true
       }
