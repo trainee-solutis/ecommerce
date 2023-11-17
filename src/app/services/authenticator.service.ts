@@ -35,7 +35,7 @@ export class AuthenticatorService {
     if(token){
       const secretKey = new TextEncoder().encode(environment.jwt_secret);
       const verifiedToken = await jwtVerify<User>(token, secretKey);
-      const user = verifiedToken.payload as User
+      const user = verifiedToken.payload["user"] as User
       return user
     }
     localStorage.removeItem('token');
@@ -43,9 +43,10 @@ export class AuthenticatorService {
   }
 
   async getCurrentUser(){
-    const token = await this.isLogged();
+    const token = await this.getLoggedUser();
       try {
-        return token?.payload
+        console.log(token);
+        return token
       } catch (error) {
         console.error('Invalid token:', error);
       }
