@@ -10,7 +10,6 @@ import { UserService } from 'app/services/user/user.service';
 })
 export class ProfileComponent implements OnInit{
 
-
   dataComponents!: string;
   constructor(private service: AuthenticatorService, private userService: UserService){
 

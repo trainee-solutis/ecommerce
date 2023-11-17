@@ -10,7 +10,7 @@ import { jwtDecrypt, jwtVerify} from 'jose';
 })
 export class AuthenticatorService {
   private apiUrl = environment.api_railway_Url;
-  private apiToken = "c29sdXRpcw==";
+  private apiToken = environment.api_token_railway;
   constructor(private http: HttpClient, private router: Router) { }
 
   async login(email: string, password: string){
