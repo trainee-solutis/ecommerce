@@ -55,6 +55,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { ProfileImageComponent } from './components/profile-image/profile-image.component';
 import { ImageCropperComponent } from './components/profile-image/image-cropper/image-cropper.component';
 import { AccessDataPageComponent } from './components/access-data-page/access-data-page.component';
+import { RegistrationDataComponent } from './components/registration-data/registration-data.component';
 
 
 @NgModule({
@@ -84,7 +85,8 @@ import { AccessDataPageComponent } from './components/access-data-page/access-da
     LoginComponent,
     ProfileImageComponent,
     ImageCropperComponent,
-    AccessDataPageComponent
+    AccessDataPageComponent,
+    RegistrationDataComponent
   ],
   imports: [
     BrowserModule,

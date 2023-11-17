@@ -1,0 +1,25 @@
+<app-profile-image></app-profile-image>
+<form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input matInput placeholder="Nome" formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Email" formControlName="email">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Data de Nascimento" formControlName="dateOfBirth">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Endereço" formControlName="address">
+  </mat-form-field>
+  <div>
+    <button mat-raised-button type="submit">Cancelar</button>
+    <button mat-raised-button type="submit" (click)="onSubmit()">Salvar Alterações</button>
+
+  </div>
+</form>
