@@ -1,0 +1,45 @@
+.example-container mat-form-field + mat-form-field {
+  margin-left: 8px;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+
+.password-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.password-container > * {
+  width: 60%;
+  margin: 10px;
+}
+
+.password-container > .btn {
+  width: auto;
+  padding: 25px 30px;
+  margin-left: 48%;
+}
+
+.circle{
+  padding: 130px;
+  margin-left: 40%;
+  margin-bottom: 5%;
+  height: 165px;
+  width: 165px;
+  background-color: #bbb;
+  border-radius: 50%;
+}

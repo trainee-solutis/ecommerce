@@ -1,0 +1,56 @@
+<app-profile-image></app-profile-image>
+<form (ngSubmit)="changePassword()" [formGroup]="passwordForm">
+  <div class="password-container">
+    <mat-form-field>
+      <mat-label>
+        Senha antiga
+      </mat-label>
+      <input matInput [type]="hideOldPassword ? 'password' : 'text'" formControlName="oldPassword" required>
+      <button mat-icon-button matSuffix (click)="hideOldPassword = !hideOldPassword" [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hideOldPassword">
+        <mat-icon>{{hideOldPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="passwordForm.get('oldPassword')?.errors?.['required']">
+        Você deve digitar sua senha antiga.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>
+        Nova senha
+      </mat-label>
+      <input matInput [type]="hideNewPassword ? 'password' : 'text'" formControlName="newPassword" required>
+      <button mat-icon-button matSuffix (click)="hideNewPassword = !hideNewPassword" [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hideNewPassword">
+        <mat-icon>{{hideNewPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="passwordForm.get('newPassword')?.errors?.['minlength'] ">
+        Sua nova senha deve conter pelo menos 8 caracteres.
+     </mat-error>
+      <mat-error *ngIf="passwordForm.get('newPassword')?.errors?.['required']">
+        Você deve digitar sua nova senha.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>
+        Repetir nova senha
+      </mat-label>
+      <input matInput [type]="hideConfirmPassword ? 'password' : 'text'" formControlName="confirmPassword" required>
+      <button mat-icon-button matSuffix (click)="hideConfirmPassword = !hideConfirmPassword"
+        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirmPassword">
+        <mat-icon>{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="passwordForm.get('confirmPassword')?.errors?.['required']">
+      Você deve digitar sua nova senha novamente.
+      </mat-error>
+      <mat-error *ngIf="passwordForm.get('confirmPassword')?.errors?.['notMatching']">
+        As senhas devem ser iguais!
+      </mat-error>
+      <mat-error *ngIf="passwordForm.get('newPassword')?.errors?.['minlength']">
+        Sua nova senha deve conter pelo menos 8 caracteres.
+      </mat-error>
+    </mat-form-field>
+    <button class="btn" mat-raised-button color="primary" [disabled]="passwordForm.invalid" >
+      Trocar Senha
+    </button>
+  </div>
+</form>
