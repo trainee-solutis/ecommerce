@@ -54,6 +54,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { NgChartsModule } from 'ng2-charts';
 import { ProfileImageComponent } from './components/profile-image/profile-image.component';
 import { ImageCropperComponent } from './components/profile-image/image-cropper/image-cropper.component';
+import { SendEmailConfirmationComponent } from './components/send-email-confirmation/send-email-confirmation.component';
 
 
 @NgModule({
@@ -83,6 +84,7 @@ import { ImageCropperComponent } from './components/profile-image/image-cropper/
     LoginComponent,
     ProfileImageComponent,
     ImageCropperComponent,
+    SendEmailConfirmationComponent,
   ],
   imports: [
     BrowserModule,
