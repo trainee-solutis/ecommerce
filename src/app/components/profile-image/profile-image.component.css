@@ -1,0 +1,19 @@
+
+.image-container {
+  height: 165px;
+  width: 165px;
+  border-radius: 50%;
+  background-color: #bbb;
+  background-size: cover;
+  padding: 130px;
+  margin-left: 40%;
+  margin-bottom: 5%;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 1;
+  box-shadow: 0 5px 10px 10px #6c93001a;
+}
+
+.image-container:hover {
+  opacity: 0.5;
+}
