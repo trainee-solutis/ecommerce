@@ -1,0 +1,7 @@
+<div class="avatar-container">
+  <div class="image-container"
+  [ngStyle]="{backgroundImage: 'url('+ file +')'}"
+  (click)="openFileInput()">
+</div>
+<input type="file" id="image-input-file" accept="image/*" (change)="onFileChange($event)" style="display:none;"/>
+</div>

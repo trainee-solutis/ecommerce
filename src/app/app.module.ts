@@ -51,6 +51,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/login/login.component';
+import { NgChartsModule } from 'ng2-charts';
+import { ProfileImageComponent } from './components/profile-image/profile-image.component';
 
 
 @NgModule({
@@ -77,7 +79,8 @@ import { LoginComponent } from './pages/login/login.component';
     SignUpComponent,
     SuccessComponent,
     ProfileComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileImageComponent,
   ],
   imports: [
     BrowserModule,
@@ -113,6 +116,7 @@ import { LoginComponent } from './pages/login/login.component';
     MatListModule,
     MatButtonModule,
     MatMenuModule,
+    NgChartsModule,
   ],
   providers: [
     BreadcrumbService,
