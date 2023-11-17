@@ -21,10 +21,6 @@
   margin: 10px;
 }
 
-::ng-deep .ng-star-inserted{
-  width: 20%;
-}
-
 .optionsList{
  align-items: start;
 }

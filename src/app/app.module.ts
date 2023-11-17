@@ -1,3 +1,4 @@
+import { NgChartsModule } from 'ng2-charts';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButton, MatButtonModule} from "@angular/material/button";
@@ -49,6 +50,7 @@ import { MatNativeDateModule } from "@angular/material/core";
 import {MatDividerModule} from '@angular/material/divider';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { PurchasesHistoricComponent } from '@components/purchases-historic/purchases-historic.component';
 
 
 @NgModule({
@@ -74,7 +76,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     TotalPriceComponent,
     SignUpComponent,
     SuccessComponent,
-    ProfileComponent
+    ProfileComponent,
+    PurchasesHistoricComponent
   ],
   imports: [
     BrowserModule,
@@ -105,10 +108,11 @@ import { ProfileComponent } from './pages/profile/profile.component';
     MatBadgeModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatDividerModule
+    MatDividerModule,
     MatSidenavModule,
     MatListModule,
-    MatButtonModule
+    MatButtonModule,
+    NgChartsModule
   ],
   providers: [
     BreadcrumbService,
