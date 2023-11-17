@@ -1,6 +1,7 @@
 import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { AuthenticatorService } from 'app/services/authenticator.service';
+import { UserService } from 'app/services/user/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,11 +12,11 @@ export class ProfileComponent implements OnInit{
 
 
   dataComponents!: string;
-  constructor(private service: AuthenticatorService){
+  constructor(private service: AuthenticatorService, private userService: UserService){
 
   }
   ngOnInit(): void {
-    this.service.getCurrentUser().then((data) => console.log(data))
+    this.userService.getCurrentUser().then((data) => console.log(data))
   }
 
   public changeComponent(component: string) {

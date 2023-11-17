@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { User } from 'app/models/user';
 import { environment } from 'environments/environment';
 import { jwtDecrypt, jwtVerify} from 'jose';
 
@@ -29,12 +30,13 @@ export class AuthenticatorService {
     }
   }
 
-  async isLogged(){
+  async getLoggedUser(){
     const token = localStorage.getItem('token');
     if(token){
       const secretKey = new TextEncoder().encode(environment.jwt_secret);
-      const verifiedToken = await jwtVerify(token, secretKey);
-      return verifiedToken
+      const verifiedToken = await jwtVerify<User>(token, secretKey);
+      const user = verifiedToken.payload as User
+      return user
     }
     localStorage.removeItem('token');
     return null;
