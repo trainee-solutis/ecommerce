@@ -51,6 +51,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/login/login.component';
+import { CreateAccountComponent } from './pages/login/create-account/create-account.component';
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import { LoginComponent } from './pages/login/login.component';
     SignUpComponent,
     SuccessComponent,
     ProfileComponent,
-    LoginComponent
+    LoginComponent,
+    CreateAccountComponent
   ],
   imports: [
     BrowserModule,

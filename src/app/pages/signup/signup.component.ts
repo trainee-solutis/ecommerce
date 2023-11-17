@@ -1,6 +1,7 @@
 import { Form, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, NgForm, NgModel } from '@angular/forms';
+import { AuthenticatorService } from 'app/services/authenticator.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,7 +10,7 @@ import { FormGroup, NgForm, NgModel } from '@angular/forms';
 })
 export class SignUpComponent implements OnInit{
 
-  constructor(private formBuilder :  FormBuilder){}
+  constructor(private formBuilder :  FormBuilder, public service: AuthenticatorService){}
   formulario!: FormGroup
 
   hide = true;
@@ -41,7 +42,12 @@ export class SignUpComponent implements OnInit{
 
 
   onSubmit(){
-    console.log(this.formulario)
+    this.service.register(this.formulario.value.nome, this.formulario.value.email, this.formulario.value.senha).then(() => {
+      alert("Cadastro feito com sucesso");
+    }).catch((error) => {
+      alert("Erro ao fazer cadastro");
+      console.log(error);
+    });
   }
 
 

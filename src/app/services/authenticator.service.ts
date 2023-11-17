@@ -12,6 +12,24 @@ export class AuthenticatorService {
   private apiToken = "c29sdXRpcw==";
   constructor(private http: HttpClient, private router: Router) { }
 
+  async register(name: string, email: string, password: string){
+    const headers = new HttpHeaders({'Authorization': `Bearer ${this.apiToken}`});
+    const options = { headers: headers };
+    const url = this.apiUrl + "register";
+    const body = {name, email, password};
+    console.log(body)
+    try{
+      await this.http.post(url, body, options).toPromise().then((data: any) => {
+        console.log("cheguei aqui");
+
+        console.log(data);
+      });
+    }catch(error){
+      console.log(error);
+      throw error;
+    }
+  }
+
   async login(email: string, password: string){
     const headers = new HttpHeaders({'Authorization': `Bearer ${this.apiToken}`});
     const options = { headers: headers };
