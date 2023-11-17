@@ -20,6 +20,7 @@ export class CreateAccountComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkToken();
+    // this.name = this.authService.getCurrentUser()
   }
 
   async checkToken(){
