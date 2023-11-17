@@ -53,6 +53,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NgChartsModule } from 'ng2-charts';
 import { ProfileImageComponent } from './components/profile-image/profile-image.component';
+import { ImageCropperComponent } from './components/profile-image/image-cropper/image-cropper.component';
 
 
 @NgModule({
@@ -81,6 +82,7 @@ import { ProfileImageComponent } from './components/profile-image/profile-image.
     ProfileComponent,
     LoginComponent,
     ProfileImageComponent,
+    ImageCropperComponent,
   ],
   imports: [
     BrowserModule,
